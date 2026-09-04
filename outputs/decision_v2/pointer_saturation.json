@@ -1,0 +1,18 @@
+{
+  "n_clips": 109,
+  "n_windows": 23696,
+  "windows_at_final_step": 15639,
+  "frac_windows_at_final_step": 0.6599848075624578,
+  "per_clip_saturated_frac_median": 0.7837837837837838,
+  "per_clip_saturated_frac_mean": 0.6271073922699645,
+  "n_clips_majority_saturated": 77,
+  "n_clips_reaching_final_step": 92,
+  "reach_final_step_at_frac_median": 0.16151266766020864,
+  "deviation_rate_median": 0.38388625592417064,
+  "train_n_windows": 47018,
+  "train_windows_at_final_step": 43652,
+  "train_frac_windows_at_final_step": 0.9284103960185461,
+  "train_per_clip_saturated_frac_median": 0.9238095238095239,
+  "train_note": "Training assigns step = min(window_index, n_steps-1), so positional variation exists only in the first n_steps windows of a recording. This is a different rule from the one used at evaluation -- a train/test mismatch in the conditioning.",
+  "note": "The pointer advances once per no-deviation WINDOW, while a recipe step spans many windows; it therefore reaches the last step early and clamps, leaving the graph context constant thereafter."
+}

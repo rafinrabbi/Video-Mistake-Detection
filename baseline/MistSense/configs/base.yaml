@@ -1,0 +1,77 @@
+# MistSense (ICCV 2025) — base config
+# Paper: https://openaccess.thecvf.com/content/ICCV2025/papers/Patsch_MistSense_Versatile_Online_Detection_of_Procedural_and_Execution_Mistakes_ICCV_2025_paper.pdf
+# Every value cited to paper §X.Y or flagged [UNSPECIFIED] / [PARTIAL] / [DEFAULT].
+
+model:
+  # Visual branch -----------------------------------------------------
+  visual_encoder: "eva_vit_l"     # §4.6 — "a ViT-L is used as a video encoder". [PARTIAL] paper says ViT-L; BLIP-2 ref [20] uses EVA-ViT-g normally; we default to EVA-ViT-L matching BLIP-2 family.
+  base_qformer_pretrained: "Salesforce/blip2-opt-2.7b"  # §3.1 — "Q-Former, similar to the one proposed in Blip2"; load + freeze
+  d_visual: 1024                  # §3.1 — `d_1`; CLIP-ViT-L/14 CLS embedding dim. Paper says "ViT-L"; we use openai/clip-vit-large-patch14 directly (no public BLIP-2 ships ViT-L). See REPRODUCTION_NOTES.md.
+  d_model: 768                    # §3.1 — `d_2`; [UNSPECIFIED] value, BLIP-2 / BERT-base default
+  num_queries: 32                 # §3.1 — `t_q`; [UNSPECIFIED] value, BLIP-2 default
+  segment_length: 8               # §3.1 — `t_s`; [UNSPECIFIED] value, 8 frames @ 2 fps = 4s
+  video_qformer_layers: 12        # §3.1 — "BERT encoder"; [UNSPECIFIED], BERT-base default
+  video_qformer_heads: 12         # §3.1 — BERT-base default [UNSPECIFIED]
+
+  # Hand pose branch --------------------------------------------------
+  num_joints: 21                  # §3.1 — `v`; Mediapipe Hands [23] default
+  num_hands: 2                    # §3.1 — `m`; Mediapipe default
+  coord_dim: 3                    # §3.1 — `c`; [UNSPECIFIED] (x,y,z)
+  d_hand: 256                     # §3.1 — `d_h`; [UNSPECIFIED] value
+  tcn_channels: 128               # §3.1 — TCN per joint; [UNSPECIFIED], follow Lea 2017 / Shamil 2024 family
+  tcn_layers: 3                   # [UNSPECIFIED] default
+
+  # Hand Q-Former mirrors Video Q-Former (§3.1 "same structure")
+
+  # Mistake head ------------------------------------------------------
+  num_classes: 1                  # §3.1 — `m ∈ R^{t_q}` binary per-query logits
+
+  # Gating + LLM ------------------------------------------------------
+  llm_name: "meta-llama/Llama-2-7b-hf"  # §4.6 — "a Llama2-7B as the LLM"
+  llm_hidden: 4096                # Llama2-7B embed dim
+  detection_threshold: 0.5        # §3.2 — `τ` not numerically specified [UNSPECIFIED]; 0.5 default
+
+  # LoRA --------------------------------------------------------------
+  lora_r: 16                      # §3.3 — "Low-Rank Adaption [12]"; [UNSPECIFIED] r value, common default
+  lora_alpha: 32                  # [UNSPECIFIED] default
+  lora_dropout: 0.05              # [UNSPECIFIED] default
+  lora_target_modules: ["q_proj", "v_proj"]  # [UNSPECIFIED] standard Llama2 targets
+
+training:
+  # Optimizer ---------------------------------------------------------
+  optimizer: "adamw"              # §4.6 — "AdamW optimizer"
+  lr_main: 3.0e-5                 # §4.6 — "initial learning rate (lr) of 3e-5"
+  lr_hand: 2.5e-2                 # §4.6 — "we use a learning rate of 2.5e-2"
+  weight_decay_main: 5.0e-3       # §4.6 — "a weight decay of 5e-3"
+  weight_decay_hand: 0.0          # §4.6 — "without weight decay" for hand encoder
+  betas: [0.9, 0.999]             # [UNSPECIFIED] PyTorch default
+  eps: 1.0e-8                     # [UNSPECIFIED] PyTorch default
+
+  # Schedule ----------------------------------------------------------
+  scheduler: "cosine"             # §4.6 — "cosine learning rate scheduler"
+  warmup_start_lr: 1.0e-6         # §4.6 — "linear warmup starting from a learning rate of 1e-6"
+  warmup_ratio: 0.05              # [UNSPECIFIED] # of warmup steps not stated; 5% of total
+
+  # Schedule of stages ------------------------------------------------
+  epochs: 12                      # §4.6 — "trained for 12 epochs"
+  grad_clip_norm: 1.0             # [UNSPECIFIED] safe default
+  mixed_precision: "bf16"         # [UNSPECIFIED] RTX A6000 supports
+
+  # Loss --------------------------------------------------------------
+  bce_w0: 1.0                     # §4.6 — Epic-tent w_0=1; HoloAssist also w_0=1
+  bce_w1: 1.0                     # §4.6 — Epic-tent w_1=1 (override to 4 for HoloAssist)
+
+  # Stage flags (used by Trainer to choose freeze-set)
+  stage: 1                        # 1=detection, 2=projection, 3=lora
+
+data:
+  dataset: "epic_tent_o"          # §4.1 — Epic-tent-O or HoloAssist
+  fps: 2                          # §4.6 — "features are extracted based on 2 fps"
+  image_size: 224                 # [UNSPECIFIED] BLIP-2 default
+  batch_size: 16                  # §4.6 — Epic-tent=16, HoloAssist=32
+  num_workers: 4                  # [DEFAULT]
+
+eval:
+  metrics: ["f1", "precision", "recall"]  # §4.1 — "precision and recall ... F1-Score"
+  caption_metrics: ["bleu", "rouge_l", "cider"]  # §4.1 — for explanation task
+  positive_label: 1               # §3.3 — "a mistake as 1"

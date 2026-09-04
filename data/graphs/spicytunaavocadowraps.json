@@ -1,0 +1,302 @@
+{
+  "task_id": "spicytunaavocadowraps",
+  "task_name": "spicytunaavocadowraps",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "place-place avocado slices on each leaf",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Season-season 1/4 tsp pepper on the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Add-1/4 cup mayonnaise to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "drain-drain excess water from can",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Lay-Lay out 2 large lettuce leaves",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Roll-Roll up the lettuce wraps",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Mix-Mix the contents of the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "top-top lettuce leaves with the tuna mixture",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Add-add chopped scallion to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Add-Add 1 can drained tuna to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Take-Take 1 ripe avocado",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Open-Open a can of tuna",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "secure-secure the wrap with a toothpick",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Season-Season bowl with 1/4 tsp salt",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "Add-1 tsp Sriracha sauce to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "Chop-Chop 1 scallion",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "17",
+      "description": "cut-cut avocado into thin slices",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "18",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "5",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "17",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "16",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "17",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "18",
+      "kind": "after"
+    }
+  ]
+}

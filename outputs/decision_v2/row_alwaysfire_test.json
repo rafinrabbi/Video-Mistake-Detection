@@ -1,0 +1,47 @@
+{
+  "config": {
+    "preds": "outputs/decision_v2/alwaysfire_test_preds.json",
+    "split": "test",
+    "tau": 0.45,
+    "smooth_k": 5,
+    "min_consecutive": 1,
+    "gate_mode": "conf_only"
+  },
+  "metrics": {
+    "binary_f1": 0.46169826019215787,
+    "macro_f1": 0.1852911809334687,
+    "per_class_f1": {
+      "no_mistake": 0.6961798647035415,
+      "order_error": 0.32663098510053523,
+      "technique_error": 0.16692522494570275,
+      "preparation_error": 0.05985169491525424,
+      "measurement_error": 0.082389289392379,
+      "missing_step": 0.0,
+      "timing_error": 0.15035238841033674,
+      "temperature_error": 0.0
+    },
+    "support": {
+      "no_mistake": 16584,
+      "order_error": 4212,
+      "technique_error": 846,
+      "preparation_error": 621,
+      "measurement_error": 786,
+      "missing_step": 2,
+      "timing_error": 556,
+      "temperature_error": 89
+    },
+    "auc_roc": 0.5,
+    "ece": 0.0,
+    "brier": 0.699864956110736,
+    "precision": 0.300135043889264,
+    "recall": 1.0,
+    "eds": 1.0,
+    "start_mae": 65.07141552805946,
+    "n_loc_events": 61,
+    "n_loc_detected": 61,
+    "auc_raw": 0.5,
+    "macro_f1_excl_missing_step": 0.21176134963824994,
+    "n_windows": 23696,
+    "n_clips": 109
+  }
+}

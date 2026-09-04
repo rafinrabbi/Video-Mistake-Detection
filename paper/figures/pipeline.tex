@@ -1,0 +1,43 @@
+% Figure 1 -- GraphWalk system diagram. Pure TikZ, no external assets.
+% Colours are muted so the figure survives greyscale printing; the feedback
+% edge (pointer advance) is the one element drawn in accent colour because it
+% is the claim the figure exists to make.
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style   = {draw, rounded corners=2pt, align=center, inner sep=3.2pt,
+                  minimum height=7.5mm, fill=black!3},
+  vlm/.style   = {draw, rounded corners=2pt, align=center, inner sep=3.5pt,
+                  minimum height=9mm, fill=blue!7, draw=blue!45},
+  graph/.style = {draw, rounded corners=2pt, align=center, inner sep=3.2pt,
+                  minimum height=7.5mm, fill=orange!10, draw=orange!55},
+  outbox/.style   = {draw, rounded corners=2pt, align=center, inner sep=3.2pt,
+                  minimum height=7.5mm, fill=green!8, draw=green!45},
+  ar/.style    = {-{Latex[length=1.5mm]}, draw=black!65},
+  fb/.style    = {-{Latex[length=1.5mm]}, draw=orange!75!red, thick, dashed},
+]
+
+% ---- perception path
+\node[box]                        (win)  {window $w_i$\\{\tiny 4\,s, 1\,fps}};
+\node[graph, right=6mm of win]    (state){graph state $\sigma_i$\\{\tiny step +
+                                          valid next steps}};
+\node[vlm,  right=6mm of state]   (vlm)  {\textbf{Qwen2.5-VL-7B}\\{\tiny +LoRA,
+                                          graph-conditioned}};
+\node[box,  right=6mm of vlm]     (json) {structured JSON\\{\tiny deviation,
+                                          class, rationale}};
+\node[box,  right=6mm of json]    (conf) {decision-token\\confidence $s_i$};
+\node[box,  right=6mm of conf]    (gate) {gate $s_i\!\ge\!\tau$\\{\tiny +median
+                                          smooth}};
+\node[outbox, right=6mm of gate]    (dec)  {typed decision\\{\tiny + onset time}};
+
+\foreach \a/\b in {win/state, state/vlm, vlm/json, json/conf, conf/gate, gate/dec}
+  \draw[ar] (\a) -- (\b);
+
+% ---- the load-bearing feedback edge
+\draw[fb] (json.north) -- ++(0,5mm) -| (state.north)
+  node[pos=0.26, above, text=orange!75!red, font=\tiny]
+  {no deviation $\Rightarrow$ advance step pointer};
+
+\node[below=1.2mm of state, text width=26mm, align=center, font=\tiny,
+      text=black!55] {gold recipe DAG\\(steps + precedence)};
+
+\end{tikzpicture}

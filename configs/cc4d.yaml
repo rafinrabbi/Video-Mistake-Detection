@@ -1,0 +1,26 @@
+defaults:
+  - base
+
+dataset:
+  name: captaincook4d
+  raw_dir: ${data_root}/raw/captaincook4d
+  processed_dir: ${data_root}/processed/captaincook4d
+  splits:
+    train: train
+    val: val
+    test: test
+  video_ext: .mp4
+  fps_sample: 1          # frames per second to sample
+  clip_len_sec: 4        # clip length for VLM input
+  clip_stride_sec: 2     # stride (online: causal; offline: full)
+  # Native CaptainCook4D taxonomy minus the ``Other`` catch-all
+  # (see src/vmd/data/mistake_classes.py).
+  mistake_classes:
+    - no_mistake
+    - order_error
+    - technique_error
+    - preparation_error
+    - measurement_error
+    - missing_step
+    - timing_error
+    - temperature_error

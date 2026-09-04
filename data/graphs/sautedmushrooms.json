@@ -1,0 +1,306 @@
+{
+  "task_id": "sautedmushrooms",
+  "task_name": "sautedmushrooms",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "pat-pat rinsed mushrooms dry with a paper towel",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Rinse-Rinse 3 mushrooms under cold water",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "cook-cook the pan, often stirring, for 1 minute",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "add-Once the pan is hot, add the mushrooms",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Add-Add chopped shallot to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Slice-Slice the mushrooms",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "mince-mince garlic cloves",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Chop-Chop 1 shallot",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "cook-cook for 3-5 minutes, stirring often, until mushrooms start to soften and brown",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Pull-Pull out mushroom stems",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Heat-Heat 1 tbsp olive oil in a large skillet over medium-high heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Transfer-Transfer the contents of the pan to a serving dish",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "cook-cook the pan, often stirring, for 1 minute",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Peel-Peel 2 garlic cloves",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "Add-1/4 tbsp balsamic vinegar to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "Add-Add 2 cloves of minced garlic to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "17",
+      "description": "Season-pepper on pan to taste",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "18",
+      "description": "Season-Season pan with salt",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "19",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "2",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "18",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "17",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "16",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "17",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "18",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "19",
+      "kind": "after"
+    }
+  ]
+}

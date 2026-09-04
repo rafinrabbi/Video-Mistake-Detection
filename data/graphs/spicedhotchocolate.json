@@ -1,0 +1,142 @@
+{
+  "task_id": "spicedhotchocolate",
+  "task_name": "spicedhotchocolate",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Heat-Heat the contents of the mug for 1 minute and serve",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Add-Add 1/5 teaspoon cinnamon to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Mix-Mix the contents of the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Add-Add 1 teaspoon of white sugar to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Fill-Fill a microwave-safe mug with skimmed milk",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Microwave-Microwave the contents of the mug for 1 minute",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Add-Add 2 pieces of chocolate to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "3",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "7",
+      "kind": "after"
+    }
+  ]
+}

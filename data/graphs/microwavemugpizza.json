@@ -1,0 +1,250 @@
+{
+  "task_id": "microwavemugpizza",
+  "task_name": "microwavemugpizza",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "add-Measure 1/8 teaspoon of salt and add it to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Sprinkle-Sprinkle dried Italian herbs inside the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Take-Take 1 tablespoon of marinara sauce",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "spread-spread marinara sauce around the surface of the batter",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Microwave-Microwave for 1 minute 20 seconds, or until it rises and the toppings are bubbling",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "add-Measure 4 tablespoons of flour and add it to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Add-1 tablespoon of olive oil to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "add-Measure 1/16 teaspoon of baking soda and add it to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Take-Take a microwavable mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Mix-Mix the contents of the mug thoroughly. (There might be some lumps, but that is ok.)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Stir-Stir the contents in the mug well",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Sprinkle-Sprinkle 1 generous tablespoon of mozzarella cheese on top of the sauce",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "add-Measure 1/8 teaspoon of baking powder and add it to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Add-Add in 3 tablespoons of milk to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "9",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "15",
+      "kind": "after"
+    }
+  ]
+}

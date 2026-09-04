@@ -1,0 +1,301 @@
+{
+  "task_id": "cardboard",
+  "task_name": "cardboard crafts",
+  "steps": [
+    {
+      "id": "step_01",
+      "description": "Draw auxiliary lines of the shape and the fold on cardboard according to dimensional drawings.",
+      "action_ids": [
+        "act_01"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_02",
+      "description": "Cut along the auxiliary lines of the shape",
+      "action_ids": [
+        "act_02"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_03",
+      "description": "Leave the ends of the liner for gluing.",
+      "action_ids": [
+        "act_03"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_04",
+      "description": "Make incisions on the auxiliary lines of the fold.",
+      "action_ids": [
+        "act_04"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_05",
+      "description": "Fold along the incisions of the fold.",
+      "action_ids": [
+        "act_05"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_06",
+      "description": "Adhere the liner with glue.",
+      "action_ids": [
+        "act_06"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_07",
+      "description": "Tape a lid paper and a bottom paper to the cardboard to secure them in place.",
+      "action_ids": [
+        "act_07"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_08",
+      "description": "Cut along the auxiliary lines of the shape on the paper.",
+      "action_ids": [
+        "act_08"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_09",
+      "description": "Make a cross-shaped incision in the lid.",
+      "action_ids": [
+        "act_09"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_10",
+      "description": "Make incisions on the auxiliary lines of the fold on the paper.",
+      "action_ids": [
+        "act_10"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_11",
+      "description": "Fold along the incisions of the fold.",
+      "action_ids": [
+        "act_11"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_12",
+      "description": "Put chopsticks through the cutout in the lid to widen the hole.",
+      "action_ids": [
+        "act_12"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_13",
+      "description": "Adhere the lid and the bottom with glue so that they cover the body.",
+      "action_ids": [
+        "act_13"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_14",
+      "description": "Put chopsticks in the body.",
+      "action_ids": [
+        "act_14"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    }
+  ],
+  "objects": [],
+  "actions": [
+    {
+      "id": "act_01",
+      "verb": "draw",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_02",
+      "verb": "cut",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_03",
+      "verb": "leave",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_04",
+      "verb": "make",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_05",
+      "verb": "fold",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_06",
+      "verb": "adhere",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_07",
+      "verb": "tape",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_08",
+      "verb": "cut",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_09",
+      "verb": "make",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_10",
+      "verb": "make",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_11",
+      "verb": "fold",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_12",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_13",
+      "verb": "adhere",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_14",
+      "verb": "put",
+      "target_object_ids": []
+    }
+  ],
+  "states": [],
+  "edges": [
+    {
+      "src": "step_01",
+      "dst": "step_02",
+      "kind": "after"
+    },
+    {
+      "src": "step_02",
+      "dst": "step_03",
+      "kind": "after"
+    },
+    {
+      "src": "step_03",
+      "dst": "step_04",
+      "kind": "after"
+    },
+    {
+      "src": "step_04",
+      "dst": "step_05",
+      "kind": "after"
+    },
+    {
+      "src": "step_05",
+      "dst": "step_06",
+      "kind": "after"
+    },
+    {
+      "src": "step_06",
+      "dst": "step_07",
+      "kind": "after"
+    },
+    {
+      "src": "step_07",
+      "dst": "step_08",
+      "kind": "after"
+    },
+    {
+      "src": "step_08",
+      "dst": "step_09",
+      "kind": "after"
+    },
+    {
+      "src": "step_09",
+      "dst": "step_10",
+      "kind": "after"
+    },
+    {
+      "src": "step_10",
+      "dst": "step_11",
+      "kind": "after"
+    },
+    {
+      "src": "step_11",
+      "dst": "step_12",
+      "kind": "after"
+    },
+    {
+      "src": "step_12",
+      "dst": "step_13",
+      "kind": "after"
+    },
+    {
+      "src": "step_13",
+      "dst": "step_14",
+      "kind": "after"
+    }
+  ]
+}

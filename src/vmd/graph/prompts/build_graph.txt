@@ -1,0 +1,43 @@
+You are a procedural knowledge extraction expert. Given a task description, extract a structured procedural graph as JSON.
+
+TASK: {task_name}
+DESCRIPTION: {task_description}
+
+Extract the following JSON structure. Be exhaustive but concise.
+
+{
+  "task_id": "<snake_case_id>",
+  "task_name": "<human name>",
+  "steps": [
+    {
+      "id": "step_01",
+      "description": "...",
+      "action_ids": ["act_01"],
+      "required_object_ids": ["obj_01"],
+      "produced_state_ids": ["state_01"],
+      "valid_variations": ["variation description if any"],
+      "is_optional": false
+    }
+  ],
+  "objects": [
+    {"id": "obj_01", "name": "...", "expected_states": ["state description"]}
+  ],
+  "actions": [
+    {"id": "act_01", "verb": "...", "target_object_ids": ["obj_01"]}
+  ],
+  "states": [
+    {"id": "state_01", "description": "...", "object_id": "obj_01"}
+  ],
+  "edges": [
+    {"src": "step_01", "dst": "step_02", "kind": "after"},
+    {"src": "step_01", "dst": "obj_01", "kind": "requires"},
+    {"src": "step_01", "dst": "state_01", "kind": "produces"}
+  ]
+}
+
+Rules:
+- Every step must appear in edges as src or dst.
+- All IDs referenced in edges must exist in their respective lists.
+- valid_variations: list ONLY truly acceptable variants (not mistakes).
+- Mark optional steps with is_optional: true.
+- Output ONLY valid JSON, no extra text.

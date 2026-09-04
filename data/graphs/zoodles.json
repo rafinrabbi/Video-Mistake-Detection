@@ -1,0 +1,236 @@
+{
+  "task_id": "zoodles",
+  "task_name": "zoodles",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Cook-Cook for 2 minutes or until the zoodles are done",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Add-1/6 cup grated parmesan cheese",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "season-pepper to taste",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Top-Top with more parmesan if desired",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Heat-Heat a large pan on medium heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Remove-Remove from heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "season-season with salt",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Add-Add 1 large minced garlic cloves to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Peel-Peel 1 garlic cloves",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Add-Add the zucchini noodles",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Cook-Cook garlic until fragrant (about 1 minutes). Be careful not to burn garlic",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Spiralize-Spiralize 1 medium zucchini into thin noodles using a spiralizer",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "Melt-Melt 1 tablespoons of softened butter",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "7",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "14",
+      "kind": "after"
+    }
+  ]
+}

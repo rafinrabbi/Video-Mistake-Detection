@@ -1,0 +1,19 @@
+{
+  "always_fire": {
+    "binary_f1": 0.46169826019215787,
+    "precision": 0.300135043889264,
+    "recall": 1.0,
+    "eds": 1.0,
+    "start_mae": 65.07141552805946,
+    "macro_f1": 0.1852911809334687
+  },
+  "never_fire": {
+    "binary_f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "eds": 0.0,
+    "start_mae": NaN,
+    "macro_f1": 0.10292949354518371
+  },
+  "positive_rate": 0.300135043889264
+}

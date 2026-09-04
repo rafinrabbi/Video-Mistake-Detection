@@ -1,0 +1,250 @@
+{
+  "task_id": "blenderbananapancakes",
+  "task_name": "blenderbananapancakes",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Add-1/2 tsp baking powder to a blender",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Serve-Serve the pancakes with chopped strawberries",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Melt-Melt a small knob of butter in a non-stick frying pan over low-medium heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "splash-splash maple syrup on plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Add-Add 1 banana to a blender",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Cook-Cook for 1 min or until the tops start to bubble",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "blitz-blitz the blender for 20 seconds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Flip-Flip the pancakes with a fork or a fish slice spatula",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Add-1 egg to a blender",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "cook-cook for 20-30 seconds more",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Pour-Pour three little puddles straight from the blender into the frying pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Add-1 heaped tbsp flour to a blender",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "Chop-Chop 1 strawberry",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Transfer-Transfer to a plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "14",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "15",
+      "kind": "after"
+    }
+  ]
+}

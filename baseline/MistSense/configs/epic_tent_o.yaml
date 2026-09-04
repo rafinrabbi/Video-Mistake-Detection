@@ -1,0 +1,7 @@
+# §4.6 — Epic-tent-O overrides. Inherit base.yaml.
+data:
+  dataset: "epic_tent_o"
+  batch_size: 16            # §4.6 — "batch size of 16 for Epic-tent"
+training:
+  bce_w0: 1.0               # §4.6 — w_0 = 1
+  bce_w1: 1.0               # §4.6 — w_1 = 1

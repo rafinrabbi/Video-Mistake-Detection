@@ -1,0 +1,175 @@
+{
+  "task_id": "tomatomozzarellasalad",
+  "task_name": "tomatomozzarellasalad",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Slice-Slice one tomato into about 1/2 inch thick slices",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Place-Place the thick slices of tomatoes on a platter, ensuring they only make a single layer",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Add-Add a drizzle of extra-virgin olive oil, about 1 tablespoon, over the entire platter",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "dry-gently dry it with a paper/tea towel",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Season-Season the tomato slices with salt",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Sprinkle-Sprinkle mozzarella cheese on top of the tomato throughout the platter",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Rinse-Rinse a tomato",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Season-Season platter with 1/4 teaspoon black pepper",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Garnish-Garnish platter with italian seasoning",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "4",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "10",
+      "kind": "after"
+    }
+  ]
+}

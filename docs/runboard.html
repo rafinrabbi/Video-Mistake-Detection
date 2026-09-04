@@ -1,0 +1,390 @@
+<title>GraphWalk Run Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+
+<style>
+/* ---- tokens: light is the complete set ------------------------------- */
+:root{
+  --paper:#eef1f0;
+  --surface:#fafbfa;
+  --surface-2:#e7ebea;
+  --ink:#141a1c;
+  --ink-2:#3d4a4c;
+  --muted:#6f7b7a;
+  --rule:#d3dad8;
+  --accent:#a86a10;
+  --accent-soft:#f0e2c8;
+  --done:#256b5c;
+  --done-soft:#d6e8e2;
+  --blocked:#a53f1a;
+  --blocked-soft:#f4ded4;
+  --queued:#6d6449;
+  --queued-soft:#e9e4d5;
+  --shadow:0 1px 2px rgba(20,26,28,.06),0 4px 14px rgba(20,26,28,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e1315;
+    --surface:#151c1e;
+    --surface-2:#1d2528;
+    --ink:#e8eeec;
+    --ink-2:#b3c0be;
+    --muted:#7f8d8b;
+    --rule:#283236;
+    --accent:#d99a33;
+    --accent-soft:#3a2e17;
+    --done:#5cb8a2;
+    --done-soft:#16302b;
+    --blocked:#e0794f;
+    --blocked-soft:#372016;
+    --queued:#b6a883;
+    --queued-soft:#2b271b;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e1315;
+  --surface:#151c1e;
+  --surface-2:#1d2528;
+  --ink:#e8eeec;
+  --ink-2:#b3c0be;
+  --muted:#7f8d8b;
+  --rule:#283236;
+  --accent:#d99a33;
+  --accent-soft:#3a2e17;
+  --done:#5cb8a2;
+  --done-soft:#16302b;
+  --blocked:#e0794f;
+  --blocked-soft:#372016;
+  --queued:#b6a883;
+  --queued-soft:#2b271b;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:15px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:40px 24px 80px;display:flex;flex-direction:column;gap:38px}
+
+h1,h2,h3{font-family:Archivo,"Arial Narrow",system-ui,sans-serif;text-wrap:balance;margin:0}
+h1{font-size:32px;font-weight:700;letter-spacing:-.015em;line-height:1.15}
+h2{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h3{font-size:16px;font-weight:600;letter-spacing:-.005em}
+p{margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+/* ---- header ---------------------------------------------------------- */
+header{display:flex;flex-direction:column;gap:14px;border-bottom:1px solid var(--rule);padding-bottom:26px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--ink-2);max-width:66ch}
+.stamp{
+  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+  background:var(--blocked-soft);color:var(--blocked);
+  border:1px solid color-mix(in srgb,var(--blocked) 30%,transparent);
+  border-radius:3px;padding:7px 12px;
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:500;letter-spacing:.02em;
+}
+.lamp{width:8px;height:8px;border-radius:50%;background:var(--blocked);flex:none}
+@media (prefers-reduced-motion:no-preference){
+  .lamp{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+}
+
+/* ---- stat strip ------------------------------------------------------ */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.stat{background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:3px}
+.stat .k{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-family:Archivo,sans-serif;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.stat .n{font-size:12px;color:var(--muted)}
+
+/* ---- pipeline rail --------------------------------------------------- */
+.rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.node{
+  background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+  padding:14px 15px 15px;display:flex;flex-direction:column;gap:7px;position:relative;
+  border-top:3px solid var(--queued);box-shadow:var(--shadow);
+}
+.node.is-next{border-top-color:var(--accent)}
+.node .id{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--muted)}
+.node .what{font-family:Archivo,sans-serif;font-weight:600;font-size:15px;line-height:1.3}
+.node .cost{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.node .note{font-size:12.5px;color:var(--muted);line-height:1.45}
+
+/* ---- chips ----------------------------------------------------------- */
+.chip{
+  display:inline-flex;align-items:center;gap:6px;flex:none;
+  font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;
+  letter-spacing:.05em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.chip.done{background:var(--done-soft);color:var(--done)}
+.chip.blocked{background:var(--blocked-soft);color:var(--blocked)}
+.chip.queued{background:var(--queued-soft);color:var(--queued)}
+.chip.out{background:var(--surface-2);color:var(--muted)}
+.chip.out::before{background:var(--muted)}
+
+/* ---- ledger ---------------------------------------------------------- */
+.group{display:flex;flex-direction:column;gap:12px}
+.grouphead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.grouphead .count{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px}
+th{
+  text-align:left;font-family:"IBM Plex Mono",monospace;font-weight:500;
+  font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--surface-2);
+}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.id{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);white-space:nowrap}
+td.res{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .sub{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.4}
+.win{color:var(--done);font-weight:500}
+
+/* ---- checklist ------------------------------------------------------- */
+.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.check{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:11px 13px}
+.box{
+  width:15px;height:15px;border-radius:2px;flex:none;margin-top:2px;
+  border:1.5px solid var(--muted);display:grid;place-items:center;
+  font-size:10px;line-height:1;color:var(--paper);font-weight:700;
+}
+.check.on .box{background:var(--done);border-color:var(--done);color:var(--surface)}
+.check .lbl{font-size:13.5px;line-height:1.4}
+.check .lbl small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+/* ---- decisions ------------------------------------------------------- */
+.calls{display:flex;flex-direction:column;gap:10px}
+.call{
+  background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);
+  border-radius:3px;padding:13px 15px;display:flex;flex-direction:column;gap:5px;
+}
+.call .q{font-family:Archivo,sans-serif;font-weight:600;font-size:14.5px}
+.call .a{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.call .a b{color:var(--ink);font-weight:500}
+
+footer{border-top:1px solid var(--rule);padding-top:18px;color:var(--muted);font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px 18px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Procedural mistake detection · CaptainCook4D · ACL ARR → EMNLP 2026</p>
+  <h1>GraphWalk run board</h1>
+  <p class="lede">Both graph ablations have landed and they agree: a model that never sees a
+    procedural graph detects mistakes just as well. What the graph changes is how <em>early</em> errors
+    are caught. The paper was retitled to match the evidence, and the cause of the null is diagnosed —
+    a saturating pointer, which is our bug rather than a property of procedural conditioning.</p>
+  <div class="stamp" style="background:var(--queued-soft);color:var(--queued);border-color:color-mix(in srgb,var(--queued) 30%,transparent)"><span class="lamp" style="background:var(--queued);animation:none"></span>R11 done · pointer fix made the model a constant firer · trivial baseline added: every F1 within noise of it</div>
+</header>
+
+<section class="group">
+  <div class="stats">
+    <div class="stat"><span class="k">Headline F1</span><span class="v">0.482</span><span class="n">vs 0.150 zero-shot</span></div>
+    <div class="stat"><span class="k">Gap CI</span><span class="v mono">±0.08</span><span class="n">[0.246, 0.409]</span></div>
+    <div class="stat"><span class="k">Test scale</span><span class="v">23,696</span><span class="n">windows · 109 recordings</span></div>
+    <div class="stat"><span class="k">R6 no graph at all</span><span class="v">0.460</span><span class="n">vs 0.482 — CI contains 0</span></div>
+    <div class="stat"><span class="k">Pointer saturated</span><span class="v">66%</span><span class="n">of all test windows</span></div>
+    <div class="stat"><span class="k">Earliness</span><span class="v">+0.13</span><span class="n">EDS, CI excludes 0</span></div>
+    <div class="stat"><span class="k">Experiments</span><span class="v">12 / 14</span><span class="n">done · 2 paused</span></div>
+    <div class="stat"><span class="k">Draft</span><span class="v">13 pp</span><span class="n">5 placeholders, all admin</span></div>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>What the ablation showed</h2><span class="count">both controls · 109 recordings · paired clip-level bootstrap</span></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Metric</th><th>R4 graph</th><th>R5 off@infer</th><th>R6 no graph at all</th><th>Paired &Delta; R4&minus;R6</th><th>Reading</th></tr></thead>
+      <tbody>
+        <tr><td>binary F1</td><td class="res">0.482</td><td class="res">0.467</td><td class="res">0.460</td><td class="res">+0.022 [&minus;0.024, +0.065]</td><td><span class="chip out">contains 0</span></td></tr>
+        <tr><td>AUC</td><td class="res">0.636</td><td class="res">0.631</td><td class="res">0.629</td><td class="res">+0.006 [&minus;0.032, +0.040]</td><td><span class="chip out">contains 0</span></td></tr>
+        <tr><td>macro F1</td><td class="res">0.185</td><td class="res">0.191</td><td class="res">0.186</td><td class="res">&minus;0.001</td><td><span class="chip out">contains 0</span></td></tr>
+        <tr><td><b>EDS (earliness)</b></td><td class="res">0.806</td><td class="res">0.697</td><td class="res">0.673</td><td class="res"><b>+0.133 [+0.054, +0.224]</b></td><td><span class="chip done">excludes 0</span></td></tr>
+        <tr><td>onset error</td><td class="res">60.4 s</td><td class="res">81.5 s</td><td class="res">79.6 s</td><td class="res">&mdash;</td><td><span class="chip done">graph helps</span></td></tr>
+        <tr><td>events found</td><td class="res">57/61</td><td class="res">57/61</td><td class="res">56/61</td><td class="res">&mdash;</td><td><span class="chip out">unchanged</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="calls">
+    <div class="call">
+      <span class="q">Why the graph does so little: the pointer saturates</span>
+      <span class="a">The step pointer advances once per no-deviation <em>window</em>, but a recipe step
+        spans many windows — so it races to the last step and clamps. It first reaches the final step at a
+        median <b>16%</b> of the way through a recording, and <b>66% of all 23,696 test windows</b> are
+        conditioned on the final step. For two-thirds of the run the "graph context" is a constant naming
+        the last step. R5 does not show structure is useless; it shows <b>this pointer stops delivering
+        structure early</b>. Same failure we rejected the offline protocol for.</span>
+    </div>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>The critical path</h2><span class="count">one queued chain · runs unattended · 24–76 h total</span></div>
+  <p class="lede">The chain waits for a free GPU, then runs these in order, re-gating and rebuilding the
+    ablation table after each. Every stage resumes per recording, so an interruption costs ~10 minutes, not hours.</p>
+  <div class="rail">
+    <div class="node" style="border-top-color:var(--done)">
+      <span class="id">G1 → R5 ✓ done 20:38</span>
+      <span class="what">Graph off at inference</span>
+      <span class="cost">15.1 h</span>
+      <span class="note">Landed. No detection effect; earliness only. See above.</span>
+    </div>
+    <div class="node" style="border-top-color:var(--done)">
+      <span class="id">G2a ✓ done 05:02</span>
+      <span class="what">Retrain without graph</span>
+      <span class="cost">7.5 h</span>
+      <span class="note">Peak 54.0 GiB allocated. Adapter saved.</span>
+    </div>
+    <div class="node" style="border-top-color:var(--done)">
+      <span class="id">G2b → R6 ✓ done 22:38</span>
+      <span class="what">No-graph adapter, full test</span>
+      <span class="cost">10.5 h</span>
+      <span class="note">Answered it: fine-tuning, not the graph.</span>
+    </div>
+    <div class="node" style="border-top-color:var(--muted)">
+      <span class="id">G3 → R7 · paused</span>
+      <span class="what">Wrong-graph control</span>
+      <span class="cost">7–24 h</span>
+      <span class="note">Stopped before running, at your request. Its purpose has changed: it would now ask whether <i>earliness</i> needs the correct plan, not whether detection does.</span>
+    </div>
+    <div class="node" style="border-top-color:var(--muted)">
+      <span class="id">G4 → R10 · paused</span>
+      <span class="what">Static-dump control</span>
+      <span class="cost">7–24 h</span>
+      <span class="note">Would ask whether earliness needs the walked pointer or just the step list.</span>
+    </div>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>Done</h2><span class="count">8 experiments · all reported numbers trace to saved artifacts</span></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Row</th><th>Experiment</th><th>Result</th><th>Compute</th><th>State</th></tr></thead>
+            <tbody>
+        <tr><td class="id">—</td><td>MistSense reproduced and retrained on CC4D<span class="sub">Two documented component substitutions; captioning stages only</span></td><td class="res">0.495<span class="sub">oracle τ, not comparable</span></td><td class="res">~8 GiB VRAM<span class="sub">CLIP feature extraction</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">R1 · R2</td><td>Zero-shot, graph prompt, full test<span class="sub">Default gate and validation-tuned gate</span></td><td class="res">0.036 · 0.150<span class="sub">AUC 0.480 = chance</span></td><td class="res">~22 GiB · 8 GiB<span class="sub">14–24 h</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">R3 · R4</td><td>LoRA graph-conditioned, full test<span class="sub">R4 is the paper's main row</span></td><td class="res win">0.471 · 0.482<span class="sub">AUC 0.636</span></td><td class="res">~22 GiB · 8 GiB<span class="sub">14–24 h</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">—</td><td>LoRA fine-tune of the graph arm<span class="sub">10,000 class-balanced windows, 2 epochs, r=32</span></td><td class="res">loss 0.017<span class="sub">adapter 0.35 GiB</span></td><td class="res">40–60 GiB · 12 GiB<span class="sub">~3 h</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">—</td><td>Decision-layer sweep, frozen on validation<span class="sub">τ 0.45 · median k=5 · persistence 1 · confidence-only gate</span></td><td class="res">applied once<span class="sub">to test</span></td><td class="res">CPU only<span class="sub">&lt;2 GiB · minutes</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">—</td><td>Statistical layer: clip-level bootstrap + McNemar<span class="sub">n=1000, seed 0, recordings as resampling unit</span></td><td class="res">Δ 0.332<span class="sub">[0.246, 0.409]</span></td><td class="res">CPU only<span class="sub">~3 GiB · minutes</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">R9</td><td>Protocol-matched baseline<span class="sub">Per-frame probabilities re-tiled onto the identical 23,696 windows</span></td><td class="res">0.477<span class="sub">Δ +0.005 → parity</span></td><td class="res">CPU only<span class="sub">~3 GiB · minutes</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">—</td><td>Confidence-source ablation<span class="sub">Deviation flag alone vs. gated on decision-token score</span></td><td class="res">0.476 → 0.482<span class="sub">+0.006</span></td><td class="res">CPU only<span class="sub">&lt;2 GiB · seconds</span></td><td><span class="chip done">done</span></td></tr>
+        <tr><td class="id">—</td><td>Environment + resume validation<span class="sub">Found the degenerate free-text fields that broke four paper claims</span></td><td class="res">76 windows<span class="sub">resume byte-identical</span></td><td class="res">~22 GiB · 8 GiB<span class="sub">4 min</span></td><td><span class="chip done">done</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>What is left</h2><span class="count">nothing running · 1 recommended · 2 paused · rest is yours</span></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Row</th><th>Experiment</th><th>Wall clock</th><th>VRAM · host RAM</th><th>State</th></tr></thead>
+                  <tbody>
+        <tr><td class="id">&mdash;</td><td><b>Pointer fix + re-run R4/R5/R6</b><span class="sub">Advance on step <i>completion</i>, not per window. The only experiment that separates "conditioning doesn't help detection" from "our delivery of it was broken"</span></td><td class="res">10&ndash;30 h</td><td class="res">17.5&ndash;62 GiB</td><td><span class="chip blocked">recommended</span></td></tr>
+        <tr><td class="id">R7</td><td>Wrong-graph control<span class="sub">Now characterises the earliness effect, not detection</span></td><td class="res">7&ndash;24 h</td><td class="res">17.5 GiB</td><td><span class="chip queued">paused</span></td></tr>
+        <tr><td class="id">R10</td><td>Static-dump control<span class="sub">Walked pointer vs. plain step list</span></td><td class="res">7&ndash;24 h</td><td class="res">17.5 GiB</td><td><span class="chip queued">paused</span></td></tr>
+        <tr><td class="id">&mdash;</td><td>Figure 2 second pass<span class="sub">Both current panels are failure modes; a clean success needs more logged recordings</span></td><td class="res">~30 min</td><td class="res">17.5 GiB</td><td><span class="chip queued">optional</span></td></tr>
+        <tr><td class="id">&mdash;</td><td>Authors, affiliations, contact, acknowledgments, code URL<span class="sub">The only red marks left in the manuscript</span></td><td class="res">&mdash;</td><td class="res">yours</td><td><span class="chip queued">yours</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>Decided against</h2><span class="count">4 calls · ~70 h GPU saved</span></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Item</th><th>Call</th><th>GPU saved</th><th>State</th></tr></thead>
+      <tbody>
+        <tr><td class="id">Offline</td><td>Dropped. Step index was tied to window index, so it saturated for most recordings — it measured weaker conditioning, not non-causal access.</td><td class="res">16–20 h</td><td><span class="chip out">closed</span></td></tr>
+        <tr><td class="id">Seeds</td><td>Stated as a limitation rather than run. The 0.332 gap is far wider than plausible seed variance.</td><td class="res">~33 h</td><td><span class="chip out">closed</span></td></tr>
+        <tr><td class="id">2nd dataset</td><td>Scoped to cooking. No other benchmark ships gold task graphs — that is the binding constraint.</td><td class="res">—</td><td><span class="chip out">closed</span></td></tr>
+        <tr><td class="id">Calibration</td><td>Removed as a contribution (monotone, moves no detection metric) but ECE is now <i>reported</i> for every row.</td><td class="res">—</td><td><span class="chip out">closed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>Resource envelope</h2><span class="count">what a run actually needs, and where each figure comes from</span></div>
+  <p class="lede">The card is a 96 GiB RTX PRO 6000, shared. Nothing here needs more than one GPU, and
+    inference comfortably fits alongside another job — it is <i>utilisation</i>, not memory, that the
+    queue gate currently waits on.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Quantity</th><th>Figure</th><th>Basis</th></tr></thead>
+      <tbody>
+        <tr><td>Model weights, bf16</td><td class="res">15.45 GiB</td><td>Measured — sum of the five safetensors shards. 8.29 B parameters, no quantisation.</td></tr>
+        <tr><td>Inference peak VRAM</td><td class="res">17.5 GiB</td><td><b>Measured</b> (18.2 reserved). Estimate was 20–24, so inference fits a 24 GiB card comfortably.</td></tr>
+        <tr><td>Inference peak host RSS</td><td class="res">16.4 GiB</td><td><b>Measured</b>. The earlier ~8 GiB figure on this row was an estimate and was wrong by roughly 2&times;.</td></tr>
+        <tr><td>Training peak VRAM</td><td class="res">61.7 GiB</td><td><b>Measured</b>, process-level. Dominated by activations with <i>gradient checkpointing disabled</i> — LoRA parameters and optimiser state together are under 0.6 GiB. The chain gate had been set to 62 GB, marginally <i>under</i> actual; raised to 66 GB.</td></tr>
+        <tr><td>Queue gate</td><td class="res">28 / 66 GiB</td><td>Now per-stage and derived from the measurements above rather than one inherited heuristic.</td></tr>
+        <tr><td>Host RAM, training</td><td class="res">~12 GiB</td><td>4 dataloader workers. An earlier eager loader needed ~240 GiB and was rewritten.</td></tr>
+        <tr><td>Host RAM, CPU re-gates</td><td class="res">2–3 GiB</td><td>Replays a 9 MiB predictions file; the 1000-resample bootstrap is the peak.</td></tr>
+        <tr><td>Disk</td><td class="res">~17 GiB</td><td>Model cache 15.45 GiB, adapter 0.35 GiB, predictions ~9 MiB per split-arm.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>Manuscript</h2><span class="count">14 pp · 7 figures · retitled around ranking · 5 red marks, all administrative</span></div>
+  <div class="checks">
+    <div class="check on"><span class="box">✓</span><span class="lbl">Method, setup, results, limitations<small>Written and verified against artifacts</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Related work<small>Every citation checked; ASK-HINT removed as unverifiable</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Figure 1<small>TikZ system diagram</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Self-review items 1–9<small>ECE reported; unsupported claims demoted</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Ablation section written<small>R5 and R6 reported against the pre-registered reading</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Seven figures<small>System, scores, pointer saturation, earliness, ablation, PR, qualitative &mdash; all generated from artefacts</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Retitled to match the evidence<small>"When, Not Whether"</small></span></div>
+    <div class="check"><span class="box"></span><span class="lbl">Authors, affiliations, contact<small>Yours — or omit for anonymous review</small></span></div>
+    <div class="check"><span class="box"></span><span class="lbl">Acknowledgments, funding, code URL<small>Yours</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">AI-use disclosure<small>Written, with the two practices it motivated</small></span></div>
+    <div class="check"><span class="box"></span><span class="lbl">Venue style file<small>Swap article class for the ACL template</small></span></div>
+    <div class="check on"><span class="box">✓</span><span class="lbl">Dependency versions pinned<small>From the live environment</small></span></div>
+  </div>
+</section>
+
+<section class="group">
+  <div class="grouphead"><h2>Open calls</h2><span class="count">worth deciding before the chain finishes, not after</span></div>
+  <div class="calls">
+    <div class="call">
+      <span class="q">R5 came back flat. Fix the pointer, or report what we have?</span>
+      <span class="a">The saturation is a bug in our method, not a property of procedural conditioning —
+        so the current ablation measures a broken pointer. <b>Fixing it (advance on step completion, not per
+        window) and re-running is arguably now the highest-value experiment available</b>, above R7 and R10:
+        it tests the method as designed. Cost: a code change plus one full pass. The alternative is to report
+        the saturation as a finding and scope the claim to earliness.</span>
+    </div>
+    <div class="call">
+      <span class="q">Are R7 and R10 still worth running?</span>
+      <span class="a">Their purpose changed when R6 landed. They no longer adjudicate detection — that is
+        settled — so they would now decompose the <i>earliness</i> effect: does it need the correct plan (R7),
+        or merely a position pointer (R10)? <b>Interesting, no longer load-bearing.</b> The pointer fix is
+        better value than either.</span>
+    </div>
+    <div class="call">
+      <span class="q">Retrain with real rationale supervision?</span>
+      <span class="a">CaptainCook4D ships free-text error descriptions that would make the explanation claim true.
+        <b>Stronger paper, but a retrain plus full re-eval.</b> Logged as future work — do not queue it ahead of the ablation.</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="mono">commit 9663c89</span>
+  <span>All numbers generated from <span class="mono">outputs/decision_v2/*.json</span></span>
+  <span>Authoritative tracker: <span class="mono">EXPERIMENTS_TODO.md</span></span>
+</footer>
+
+</div>

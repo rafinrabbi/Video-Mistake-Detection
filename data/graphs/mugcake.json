@@ -1,0 +1,344 @@
+{
+  "task_id": "mugcake",
+  "task_name": "mugcake",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Whisk-Whisk batter until no lumps remain",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "remove-then carefully remove the paper liner",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Measure and add-2 tbsp water to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Measure and add-1.5 tbsp sugar to the mixing bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Scoop-While the cake is cooling, prepare to pipe the frosting. Scoop 4 spoonfuls of chocolate frosting into a zip-top bag",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Measure and add-Measure and add 2 tbsp flour to the mixing bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Measure and add-Measure and add 2 tsp vegetable oil to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Set-Set aside the lined mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Squeeze-Squeeze the frosting through the opening to apply small dollops of frosting to the plate in a circle around the base of the cake",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Place-Place the paper cupcake liner inside the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Measure and add-1/4 tsp baking powder to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Allow-Allow to cool until it is no longer hot to the touch",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "cut-Use scissors to cut one corner from the bag to create a small opening 1/4 inch in diameter",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Pour-Pour batter into prepared mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "Whisk-Whisk to combine mixture of flour, sugar and baking powder in the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "Invert-Invert the mug to release the cake onto a plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "17",
+      "description": "Measure and add-a pinch of salt to the mixing bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "18",
+      "description": "seal-seal zip top bag, removing as much air as possible",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "19",
+      "description": "Microwave-Microwave the mug and batter on high power for 60 seconds. Check if the cake is done by inserting and toothpick into the center of the cake and then removing it. If wet batter clings to the toothpick, microwave for an additional 5 seconds. If the toothpick comes out clean, continue",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "20",
+      "description": "Measure and add-1/4 tsp vanilla extract to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "21",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "3",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "20",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "16",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "18",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "17",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "19",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "18",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "19",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "20",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "17",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "21",
+      "kind": "after"
+    }
+  ]
+}

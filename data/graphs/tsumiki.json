@@ -1,0 +1,154 @@
+{
+  "task_id": "tsumiki",
+  "task_name": "toy block building",
+  "steps": [
+    {
+      "id": "step_01",
+      "description": "Arrange three cube blocks in a row from left to right in the order of blue, green, and yellow.",
+      "action_ids": [
+        "act_01"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_02",
+      "description": "Bridge two long thin cuboid blocks on the square blocks from left to right in the order of blue and green.",
+      "action_ids": [
+        "act_02"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_03",
+      "description": "Stand three short thin cuboid blocks equally spaced from left to right in the order of blue, green, and yellow.",
+      "action_ids": [
+        "act_03"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_04",
+      "description": "Bridge two long thin cuboid blocks on the upright blocks from left to right in the order of yellow and red.",
+      "action_ids": [
+        "act_04"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_05",
+      "description": "Place two thick cuboid blocks on the bridge, laying them down in order from left to right, yellow to red.",
+      "action_ids": [
+        "act_05"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_06",
+      "description": "Lay one blue thick cuboid block down and stack it in the upper center of the yellow and the red bhick cuboid blocks.",
+      "action_ids": [
+        "act_06"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_07",
+      "description": "Place two triangular prism blocks on both sides of the blue thick cuboid block from left to right in the order of blue and red.",
+      "action_ids": [
+        "act_07"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    }
+  ],
+  "objects": [],
+  "actions": [
+    {
+      "id": "act_01",
+      "verb": "arrange",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_02",
+      "verb": "bridge",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_03",
+      "verb": "stand",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_04",
+      "verb": "bridge",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_05",
+      "verb": "place",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_06",
+      "verb": "lay",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_07",
+      "verb": "place",
+      "target_object_ids": []
+    }
+  ],
+  "states": [],
+  "edges": [
+    {
+      "src": "step_01",
+      "dst": "step_02",
+      "kind": "after"
+    },
+    {
+      "src": "step_02",
+      "dst": "step_03",
+      "kind": "after"
+    },
+    {
+      "src": "step_03",
+      "dst": "step_04",
+      "kind": "after"
+    },
+    {
+      "src": "step_04",
+      "dst": "step_05",
+      "kind": "after"
+    },
+    {
+      "src": "step_05",
+      "dst": "step_06",
+      "kind": "after"
+    },
+    {
+      "src": "step_06",
+      "dst": "step_07",
+      "kind": "after"
+    }
+  ]
+}

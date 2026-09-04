@@ -1,0 +1,315 @@
+{
+  "task_id": "tomatochutney",
+  "task_name": "tomatochutney",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Add-Add 1/4 tsp mustard to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "mince-mince the garlic",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Add-1/2 tsp cumin seeds to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Add-Add tomato puree to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Take-Take the pan off the heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Mix-Mix well tomato puree with contents in the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Peel-Peel 4 large garlic cloves",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Add-1/2 tsp salt to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Add-Add 2 tbsp red chili powder to the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Saute-Saute the garlic for 2-3 minutes",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Take-Take 1 tomato",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "puree-puree tomatoes without any water in a blender/mixer",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "Lower-Lower the heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "add-When mustard and cumin seeds begin to sizzle, add minced garlic",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "simmer-Allow the mixture to simmer over low heat for 5 minutes or until the mixture becomes thick",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "Heat-Heat 3 tbsp oil in a pan over medium heat",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "17",
+      "description": "Chop-Chop tomato roughly (anysize chunks are fine)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "18",
+      "description": "Transfer-Transfer it to a serving bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "19",
+      "description": "mix-mix well contents of the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "20",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "16",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "16",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "19",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "17",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "17",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "18",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "19",
+      "kind": "after"
+    },
+    {
+      "src": "19",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "18",
+      "dst": "20",
+      "kind": "after"
+    }
+  ]
+}

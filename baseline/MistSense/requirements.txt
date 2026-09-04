@@ -1,0 +1,15 @@
+# MistSense reproduction dependencies
+torch>=2.1.0
+numpy>=1.24.0
+pyyaml>=6.0
+
+# Pretrained backbones (load externally; not auto-instantiated by model.py)
+transformers>=4.40.0      # ViT-L, BLIP-2 Q-Former, Llama2-7B
+peft>=0.10.0              # LoRA (§3.3 stage 3)
+accelerate>=0.27.0        # bf16 training on A6000
+
+# Hand pose extraction (§4.6)
+mediapipe>=0.10.0         # not imported by model.py; preprocessing only
+
+# Caption metrics (§4.1) — optional, for explanation eval
+pycocoevalcap>=1.2        # BLEU / ROUGEL / CIDEr

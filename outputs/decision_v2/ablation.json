@@ -1,0 +1,543 @@
+{
+  "dataset_coverage": {
+    "test_clips": 109,
+    "nonlocalizable_segments": 69,
+    "untyped_dropped_segments": 1
+  },
+  "rows": [
+    {
+      "row": "R1 zero-shot, graph prompt, default gate (tau .5, and, k3)",
+      "config": {
+        "tau": 0.5,
+        "smooth_k": 3,
+        "min_consecutive": 2,
+        "gate_mode": "and"
+      },
+      "note": null,
+      "binary_f1": 0.03610675039246468,
+      "macro_f1": 0.10699789399207284,
+      "macro_f1_excl_missing_step": 0.1222833074195118,
+      "auc_raw": 0.48022568627682394,
+      "precision": 0.2593984962406015,
+      "recall": 0.01940382452193476,
+      "eds": 0.24479993009565973,
+      "start_mae": 236.1970746388016,
+      "f1_no_mistake": 0.8129191669608189,
+      "f1_order_error": 0.009596510359869139,
+      "f1_technique_error": 0.027559055118110236,
+      "f1_preparation_error": 0.005908419497784343,
+      "f1_measurement_error": 0.0,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.0,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 36,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.01919202300930243,
+          0.05571357060285808
+        ],
+        "macro_f1": [
+          0.09953028171974028,
+          0.11368610305439626
+        ],
+        "auc_raw": [
+          0.44666535386944706,
+          0.5122131977423733
+        ],
+        "eds": [
+          0.15036467842360784,
+          0.3561967634752308
+        ]
+      }
+    },
+    {
+      "row": "R2 zero-shot, graph prompt, val-tuned gate",
+      "config": {
+        "tau": 0.3,
+        "smooth_k": 1,
+        "min_consecutive": 1,
+        "gate_mode": "conf_only",
+        "selected_on": "val",
+        "val_binary_f1": 0.1519031141868512,
+        "val_eds": 0.9829106340143005
+      },
+      "note": null,
+      "binary_f1": 0.14983385358976942,
+      "macro_f1": 0.1076938249166502,
+      "macro_f1_excl_missing_step": 0.12307865704760021,
+      "auc_raw": 0.48022568627682394,
+      "precision": 0.2639233770840724,
+      "recall": 0.1046119235095613,
+      "eds": 0.9848725869096375,
+      "start_mae": 64.39857744328397,
+      "f1_no_mistake": 0.8115824847765116,
+      "f1_order_error": 0.012061167348696963,
+      "f1_technique_error": 0.029211295034079845,
+      "f1_preparation_error": 0.008695652173913044,
+      "f1_measurement_error": 0.0,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.0,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 61,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.12704757231988217,
+          0.17174511991288532
+        ],
+        "macro_f1": [
+          0.0998702682101452,
+          0.11475415933984445
+        ],
+        "auc_raw": [
+          0.44666535386944706,
+          0.5122131977423733
+        ],
+        "eds": [
+          0.9714816829110415,
+          0.9958389623281192
+        ]
+      }
+    },
+    {
+      "row": "R3 LoRA, graph prompt, default gate (tau .5, and, k3) [guard row]",
+      "config": {
+        "tau": 0.5,
+        "smooth_k": 3,
+        "min_consecutive": 2,
+        "gate_mode": "and"
+      },
+      "note": null,
+      "binary_f1": 0.4710994702065599,
+      "macro_f1": 0.18499873083338295,
+      "macro_f1_excl_missing_step": 0.21142712095243765,
+      "auc_raw": 0.635589445754429,
+      "precision": 0.40848559925673583,
+      "recall": 0.5563835770528683,
+      "eds": 0.7631742850661742,
+      "start_mae": 60.16236298184729,
+      "f1_no_mistake": 0.7046407970634504,
+      "f1_order_error": 0.32569677513497736,
+      "f1_technique_error": 0.16656030631780472,
+      "f1_preparation_error": 0.05819379632171287,
+      "f1_measurement_error": 0.07352941176470588,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.15136876006441224,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 55,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.38424432671382147,
+          0.5475813596684943
+        ],
+        "macro_f1": [
+          0.1613357693729309,
+          0.20758240544184373
+        ],
+        "auc_raw": [
+          0.5627737850773699,
+          0.6977646123199808
+        ],
+        "eds": [
+          0.6563177061859004,
+          0.8605515117207407
+        ]
+      }
+    },
+    {
+      "row": "R4 LoRA, graph prompt, val-tuned gate (MAIN)",
+      "config": {
+        "tau": 0.45,
+        "smooth_k": 5,
+        "min_consecutive": 1,
+        "gate_mode": "conf_only",
+        "selected_on": "val",
+        "val_binary_f1": 0.4818438381937912,
+        "val_eds": 0.7464666812690527
+      },
+      "note": null,
+      "binary_f1": 0.48156880786704237,
+      "macro_f1": 0.1852911809334687,
+      "macro_f1_excl_missing_step": 0.21176134963824994,
+      "auc_raw": 0.635589445754429,
+      "precision": 0.40741461516006616,
+      "recall": 0.5887232845894264,
+      "eds": 0.8061558626589164,
+      "start_mae": 60.44314402272301,
+      "f1_no_mistake": 0.6961798647035415,
+      "f1_order_error": 0.32663098510053523,
+      "f1_technique_error": 0.16692522494570275,
+      "f1_preparation_error": 0.05985169491525424,
+      "f1_measurement_error": 0.082389289392379,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.15035238841033674,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 57,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.3916954689768274,
+          0.5576888685795613
+        ],
+        "macro_f1": [
+          0.16119654293908917,
+          0.20809087395012854
+        ],
+        "auc_raw": [
+          0.5627737850773699,
+          0.6977646123199808
+        ],
+        "eds": [
+          0.7048935035354407,
+          0.8916791163027854
+        ]
+      }
+    },
+    {
+      "row": "R5 LoRA, graph-OFF prompt (inference ablation), R4 gate",
+      "config": {
+        "preds": "outputs/decision_v2/lora_nograph_test_preds.json",
+        "split": "test",
+        "tau": 0.45,
+        "smooth_k": 5,
+        "min_consecutive": 1,
+        "gate_mode": "conf_only"
+      },
+      "note": "existing graph-trained adapter, graph block stripped at inference",
+      "binary_f1": 0.4665463372129209,
+      "macro_f1": 0.19100418160855978,
+      "macro_f1_excl_missing_step": 0.21829049326692546,
+      "auc_raw": 0.6312371737270178,
+      "precision": 0.41853713009491905,
+      "recall": 0.5269966254218222,
+      "eds": 0.6974357135593806,
+      "start_mae": 81.54363747168874,
+      "f1_no_mistake": 0.7253297818366311,
+      "f1_order_error": 0.28417818740399386,
+      "f1_technique_error": 0.2037037037037037,
+      "f1_preparation_error": 0.07472130159686653,
+      "f1_measurement_error": 0.12403951701427003,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.1160609613130129,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 57,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.38283913578528994,
+          0.5364781075277594
+        ],
+        "macro_f1": [
+          0.16622457373436325,
+          0.21086439610926833
+        ],
+        "auc_raw": [
+          0.5637395905561021,
+          0.6875300776411231
+        ],
+        "eds": [
+          0.590533035658173,
+          0.8013112446302117
+        ]
+      }
+    },
+    {
+      "row": "R6 no-graph LoRA (trained + evaluated graph-OFF), R4 gate",
+      "config": {
+        "preds": "outputs/decision_v2/lora_nogr_trained_test_preds.json",
+        "split": "test",
+        "tau": 0.45,
+        "smooth_k": 5,
+        "min_consecutive": 1,
+        "gate_mode": "conf_only"
+      },
+      "note": "adapter retrained with nograph prompts, same hyperparams",
+      "binary_f1": 0.4598115299334812,
+      "macro_f1": 0.1864892037642209,
+      "macro_f1_excl_missing_step": 0.21313051858768103,
+      "auc_raw": 0.6294911498377282,
+      "precision": 0.4532786885245902,
+      "recall": 0.46653543307086615,
+      "eds": 0.6727574143456941,
+      "start_mae": 79.6285082845422,
+      "f1_no_mistake": 0.7509078148362882,
+      "f1_order_error": 0.27720644666155025,
+      "f1_technique_error": 0.1614190687361419,
+      "f1_preparation_error": 0.06626954579300075,
+      "f1_measurement_error": 0.14157014157014158,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.09454061251664447,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 56,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.3812186104953935,
+          0.5336945382316758
+        ],
+        "macro_f1": [
+          0.16492081061887512,
+          0.20582975046352847
+        ],
+        "auc_raw": [
+          0.5596525384213442,
+          0.6921384389203881
+        ],
+        "eds": [
+          0.5646500775710368,
+          0.7784127574305487
+        ]
+      }
+    },
+    {
+      "row": "R11 LoRA retrained, rate-limited step pointer (corrected conditioning), R4 gate",
+      "config": {
+        "preds": "outputs/decision_v2/lora_fixedptr_test_preds.json",
+        "split": "test",
+        "tau": 0.45,
+        "smooth_k": 5,
+        "min_consecutive": 1,
+        "gate_mode": "conf_only"
+      },
+      "note": "gold-step teacher forcing in training + rate-limited causal pointer at eval; the same rule on both sides",
+      "binary_f1": 0.4575271598551474,
+      "macro_f1": 0.08248798085949255,
+      "macro_f1_excl_missing_step": 0.09427197812513434,
+      "auc_raw": 0.5734851160971015,
+      "precision": 0.3031120047525476,
+      "recall": 0.9326490438695163,
+      "eds": 0.8342502508829116,
+      "start_mae": 67.25767000018324,
+      "f1_no_mistake": 0.1471466579790411,
+      "f1_order_error": 0.2500515782958531,
+      "f1_technique_error": 0.060322108345534406,
+      "f1_preparation_error": 0.059275933220784095,
+      "f1_measurement_error": 0.12459807073954984,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.018509498295177788,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 58,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.37650082713895316,
+          0.5416650608097575
+        ],
+        "macro_f1": [
+          0.06125280597173563,
+          0.10402632560597358
+        ],
+        "auc_raw": [
+          0.48412087840847906,
+          0.6576333862211159
+        ],
+        "eds": [
+          0.7414088784272844,
+          0.9118585187416994
+        ]
+      }
+    },
+    {
+      "row": "R9 MistSense re-tiled to 4s grid, val-tuned gate",
+      "config": {
+        "preds": "outputs/decision_v2/mistsense_test_preds.json",
+        "split": "test",
+        "tau": 0.7,
+        "smooth_k": 1,
+        "min_consecutive": 1,
+        "gate_mode": "and"
+      },
+      "note": "per-frame probs max-pooled onto the identical 23,696 windows; the only fully protocol-matched baseline row",
+      "binary_f1": 0.47700221529681225,
+      "macro_f1": 0.10292949354518371,
+      "macro_f1_excl_missing_step": 0.11763370690878139,
+      "auc_raw": 0.5854775117654433,
+      "precision": 0.3253931663336919,
+      "recall": 0.8931383577052868,
+      "eds": 0.9912624003425731,
+      "start_mae": 60.92734229345273,
+      "f1_no_mistake": 0.8234359483614697,
+      "f1_order_error": 0.0,
+      "f1_technique_error": 0.0,
+      "f1_preparation_error": 0.0,
+      "f1_measurement_error": 0.0,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.0,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 61,
+      "n_windows": 23696,
+      "n_clips": 109,
+      "ci95": {
+        "binary_f1": [
+          0.39612217488283996,
+          0.5572440786531435
+        ],
+        "macro_f1": [
+          0.09618089266552647,
+          0.10825518295907947
+        ],
+        "auc_raw": [
+          0.5387234134806078,
+          0.6299550448106308
+        ],
+        "eds": [
+          0.9848858504659894,
+          0.9966177540202644
+        ]
+      }
+    },
+    {
+      "row": "R12 TRIVIAL fire-on-every-window baseline",
+      "config": {
+        "preds": "outputs/decision_v2/alwaysfire_test_preds.json",
+        "split": "test",
+        "tau": 0.45,
+        "smooth_k": 5,
+        "min_consecutive": 1,
+        "gate_mode": "conf_only"
+      },
+      "note": "not a system: a constant detector at the split's 30.0% positive rate. Every binary F1 above must be read against this row.",
+      "binary_f1": 0.46169826019215787,
+      "macro_f1": 0.1852911809334687,
+      "macro_f1_excl_missing_step": 0.21176134963824994,
+      "auc_raw": 0.5,
+      "precision": 0.300135043889264,
+      "recall": 1.0,
+      "eds": 1.0,
+      "start_mae": 65.07141552805946,
+      "f1_no_mistake": 0.6961798647035415,
+      "f1_order_error": 0.32663098510053523,
+      "f1_technique_error": 0.16692522494570275,
+      "f1_preparation_error": 0.05985169491525424,
+      "f1_measurement_error": 0.082389289392379,
+      "f1_missing_step": 0.0,
+      "f1_timing_error": 0.15035238841033674,
+      "f1_temperature_error": 0.0,
+      "support": {
+        "no_mistake": 16584,
+        "order_error": 4212,
+        "technique_error": 846,
+        "preparation_error": 621,
+        "measurement_error": 786,
+        "missing_step": 2,
+        "timing_error": 556,
+        "temperature_error": 89
+      },
+      "n_loc_events": 61,
+      "n_loc_detected": 61,
+      "n_windows": 23696,
+      "n_clips": 109
+    }
+  ],
+  "footnotes": [
+    "Decision configs: 'default' = tau .5 / AND-gate / median k3 / persistence 2 (historical). 'val-tuned' = selected on the 62-clip val split by binary F1 (persistence by val EDS), frozen, applied once to test. R5-R7 reuse R4's frozen gate so the only variable is the prompt/graph conditioning.",
+    "MistSense's originally reported 0.495 used a tau sweep ON TEST (oracle selection) over 872 coarse windows; R8/R9 replace it with val-selected tau. The oracle number is retained here for transparency, not comparison.",
+    "Zero-shot rows: auc_raw ~= 0.48 (chance) \u2014 the tuned zero-shot F1 reflects threshold placement on a near-chance ranker, and its high EDS reflects indiscriminate early firing (see EDS footnote).",
+    "R7 and R10 were pre-registered and cancelled without being run: both decompose a detection effect, and R5/R6 established there is none to decompose. Their row files do not exist and the builder skips them.",
+    "R12 is the trivial always-fire detector, re-gated through the identical decision layer for comparability. Its auc_raw is 0.5 by construction (a constant score cannot rank).",
+    "R11 corrects the step-assignment rule on BOTH sides (gold-step teacher forcing in training, rate-limited causal pointer at eval). It cuts saturation from 66% to 20.7% of windows and still fails: the causal pointer agrees with the gold step on 7.7% of windows, so a model trained on always-correct steps is out of distribution and fires on 93%.",
+    "Protocol: online causal, clip_len 4s, stride 4s, fps 1; trailing <stride s per clip unsampled (floor tiling).",
+    "69 nonlocalizable (start=-1, mostly Missing-Step) segments mark NO window and are unrecallable by windowed metrics; 1 'Other'-only step(s) dropped from typed metrics. missing_step is structurally unreachable -> macro_f1_excl_missing_step.",
+    "CIs: clip-level bootstrap, n=1000, seed=0, percentile 95%. Windows within a clip are correlated; clips are the resampling unit.",
+    "EDS must be read jointly with precision: a system that fires early and often scores high EDS regardless of accuracy.",
+    "Localization uses min_consecutive persistence from each row's decision config; binary F1 gates on smoothed score>0 \u2014 different decision rules by design.",
+    "auc_raw ranks by the raw (ungated) per-window confidence \u2014 threshold-free, comparable across rows."
+  ]
+}

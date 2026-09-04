@@ -1,0 +1,175 @@
+{
+  "task_id": "electronics",
+  "task_name": "electrical circuits",
+  "steps": [
+    {
+      "id": "step_01",
+      "description": "Connect the battery box and switch S1 in series.",
+      "action_ids": [
+        "act_01"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_02",
+      "description": "Connect the switch S1 and motor in series.",
+      "action_ids": [
+        "act_02"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_03",
+      "description": "Connect switch S2 and lamp L1 in parallel.",
+      "action_ids": [
+        "act_03"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_04",
+      "description": "Connect the switch S2 in series with the motor and the battery box.",
+      "action_ids": [
+        "act_04"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_05",
+      "description": "Put a propeller on the motor.",
+      "action_ids": [
+        "act_05"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_06",
+      "description": "Put two battery in the battery box.",
+      "action_ids": [
+        "act_06"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_07",
+      "description": "Turn on the switch S1.",
+      "action_ids": [
+        "act_07"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_08",
+      "description": "Turn on the switch S2.",
+      "action_ids": [
+        "act_08"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    }
+  ],
+  "objects": [],
+  "actions": [
+    {
+      "id": "act_01",
+      "verb": "connect",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_02",
+      "verb": "connect",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_03",
+      "verb": "connect",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_04",
+      "verb": "connect",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_05",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_06",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_07",
+      "verb": "turn",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_08",
+      "verb": "turn",
+      "target_object_ids": []
+    }
+  ],
+  "states": [],
+  "edges": [
+    {
+      "src": "step_01",
+      "dst": "step_02",
+      "kind": "after"
+    },
+    {
+      "src": "step_02",
+      "dst": "step_03",
+      "kind": "after"
+    },
+    {
+      "src": "step_03",
+      "dst": "step_04",
+      "kind": "after"
+    },
+    {
+      "src": "step_04",
+      "dst": "step_05",
+      "kind": "after"
+    },
+    {
+      "src": "step_05",
+      "dst": "step_06",
+      "kind": "after"
+    },
+    {
+      "src": "step_06",
+      "dst": "step_07",
+      "kind": "after"
+    },
+    {
+      "src": "step_07",
+      "dst": "step_08",
+      "kind": "after"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "task_id": "microwaveeggsandwich",
+  "task_name": "microwaveeggsandwich",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Pour-Pour 1 egg into the ramekin cup",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Place -Place the egg from the cup over the lettuce",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Coat -Coat a 6-oz. ramekin cup with cooking spray",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Microwave-Microwave the ramekin cup uncovered on high for 30 seconds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "sprinkle -sprinkle 1 tablespoon of cheese on cup",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Top -Top cup with 1 tablespoon of salsa",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "replace -replace the top of the English muffin",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Microwave -Continue to Microwave for 15-30 more seconds or until the egg is almost set",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Line -Line the bottom piece of the English muffin with lettuce",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Microwave -Microwave just until cheese melts, about 10 seconds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "stir-stir the ramekin cup",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Cut -Cut the English muffin into two pieces with a knife",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "3",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "13",
+      "kind": "after"
+    }
+  ]
+}

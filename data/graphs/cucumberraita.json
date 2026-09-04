@@ -1,0 +1,218 @@
+{
+  "task_id": "cucumberraita",
+  "task_name": "cucumberraita",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Add-1/4 teaspoon of red chilli powder to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "peel-peel the cucumber",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "whisk-In a mixing bowl, whisk 1 cup of chilled curd until smooth. Use fresh homemade or packaged curd",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Add-1/4 teaspoon salt to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "chop or grate-chop or grate the cucumber",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Combine-Combine all the ingredients in the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "add-add 1 tablespoon of chopped cilantro leaves to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Add-Add 1 teaspoon of cumin powder to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Rinse-Rinse 1 medium sized cucumber",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Add-Add the chopped or grated cucumber to the whisked curd",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Add-1/2 teaspoon of chaat masala powder to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "9",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "12",
+      "kind": "after"
+    }
+  ]
+}

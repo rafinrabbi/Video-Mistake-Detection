@@ -1,0 +1,30 @@
+defaults:
+  - qwen25vl_zeroshot
+
+mode: lora
+
+lora:
+  adapter_dir: ${output_dir}/lora_adapters
+  r: 32
+  lora_alpha: 64
+  lora_dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+train:
+  epochs: 3
+  batch_size: 1
+  grad_accum: 8
+  lr: 2e-4
+  warmup_ratio: 0.05
+  max_grad_norm: 1.0
+  bf16: true
+  gradient_checkpointing: true
+  loss_ce_weight: 1.0
+  loss_calib_weight: 0.3

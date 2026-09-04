@@ -1,0 +1,278 @@
+{
+  "task_id": "dressedupmeatballs",
+  "task_name": "dressedupmeatballs",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Peel-Peel 1 garlic clove",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Pour-Pour the sauces over the meatballs",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Cut-Cut 1/8 garlic clove",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Peel-Peel one medium onion",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Stir-Stir the contents in the microwave with a spoon",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Slice-Slice 1/8 medium onion",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Stir-Stir the contents in the microwave with a spoon",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Microwave-Microwave the plate, covered, on high for 1.5 minutes",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Place-Place 5 meatballs in a Microwave-safe plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Cut-Cut 1/4 medium carrot into short, thin strips",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Mix-Mix 1/4 cup sweet-and-sour sauce and 1/2 teaspoon soy sauce in a small bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Top-Top the plate with the carrots, onion, garlic and 1/4 tsp pepper powder",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "Microwave-Microwave the plate, covered, on high for 1.5 minutes",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Microwave-Microwave for 1 more minute",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "Mince-Mince 1/8 garlic clove",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "cut-Cut onion into two pieces",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "17",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "11",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "16",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "17",
+      "kind": "after"
+    }
+  ]
+}

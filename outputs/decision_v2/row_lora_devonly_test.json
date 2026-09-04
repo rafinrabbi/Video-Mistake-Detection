@@ -1,0 +1,46 @@
+{
+  "config": {
+    "tau": 0.0,
+    "smooth_k": 5,
+    "min_consecutive": 1,
+    "gate_mode": "and",
+    "note": "deviation-flag-only ablation: tau=0 makes the confidence term inert, so the decision reduces to the model deviation flag (equivalent to gating on the constant verbalized confidence)."
+  },
+  "metrics": {
+    "binary_f1": 0.4758102395490841,
+    "macro_f1": 0.1852911809334687,
+    "per_class_f1": {
+      "no_mistake": 0.6961798647035415,
+      "order_error": 0.32663098510053523,
+      "technique_error": 0.16692522494570275,
+      "preparation_error": 0.05985169491525424,
+      "measurement_error": 0.082389289392379,
+      "missing_step": 0.0,
+      "timing_error": 0.15035238841033674,
+      "temperature_error": 0.0
+    },
+    "support": {
+      "no_mistake": 16584,
+      "order_error": 4212,
+      "technique_error": 846,
+      "preparation_error": 621,
+      "measurement_error": 786,
+      "missing_step": 2,
+      "timing_error": 556,
+      "temperature_error": 89
+    },
+    "auc_roc": 0.6169061325388777,
+    "ece": 0.49197682547134614,
+    "brier": 0.5003030723630731,
+    "precision": 0.40846774193548385,
+    "recall": 0.5697412823397076,
+    "eds": 0.7897624200359655,
+    "start_mae": 61.1290395487206,
+    "n_loc_events": 61,
+    "n_loc_detected": 57,
+    "auc_raw": 0.635589445754429,
+    "macro_f1_excl_missing_step": 0.21176134963824994,
+    "n_windows": 23696,
+    "n_clips": 109
+  }
+}

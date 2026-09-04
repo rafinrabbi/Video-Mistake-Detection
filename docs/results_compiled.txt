@@ -1,0 +1,272 @@
+SUPERSEDED - historical record, do not cite.
+These notes describe the EgoOops benchmark and/or the 6-class taxonomy, both
+replaced in 208bb5c (CaptainCook4D, native 8-class). Current sources:
+EXPERIMENTS_TODO.md, CLAUDE.md, outputs/decision_v2/ablation.md, paper/main.tex.
+================================================================================
+
+Compiled Results — Video Mistake Detection Pipeline
+====================================================
+Generated: 2026-05-13
+All numbers come from actual code runs. Nothing estimated.
+
+════════════════════════════════════════════════════════════════════════════════
+PART 1 — DATASET STATISTICS  (scripts/convert_egoops_annotations.py complete)
+════════════════════════════════════════════════════════════════════════════════
+
+Split summary:
+  train  30 clips
+  val    10 clips
+  test   10 clips
+  total  50 clips
+
+Tasks (5 total, balanced across all splits):
+  blacklight    electronics repair/testing
+  cardboard     packaging / box assembly
+  electronics   electronics assembly
+  ion           chemistry / lab procedure
+  tsumiki       toy (block) construction
+
+Per-split task distribution:
+  train  6 clips per task (6 × 5 = 30)
+  val    2 clips per task (2 × 5 = 10)
+  test   2 clips per task (2 × 5 = 10)
+
+Mistake class distribution (only 2 of 6 classes observed in dataset):
+  ┌───────────────┬───────┬─────┬──────┐
+  │ Class         │ Train │ Val │ Test │
+  ├───────────────┼───────┼─────┼──────┤
+  │ wrong_action  │  33   │  15 │   3  │
+  │ wrong_object  │  32   │   7 │   5  │
+  │ wrong_order   │   0   │   0 │   0  │
+  │ missing_step  │   0   │   0 │   0  │
+  │ wrong_quantity│   0   │   0 │   0  │
+  │ no_mistake    │   -   │   - │   -  │
+  └───────────────┴───────┴─────┴──────┘
+
+  NOTE: EgoOops only contains wrong_action and wrong_object mistakes.
+  The other 4 mistake classes defined in the system never appear in the data.
+  Macro F1 over 6 classes will always be penalized by the 4 empty classes.
+
+Clips with at least one mistake vs clean clips:
+  train  19 / 30 clips have mistakes  (63%)
+  val     7 / 10 clips have mistakes  (70%)
+  test    4 / 10 clips have mistakes  (40%)
+
+════════════════════════════════════════════════════════════════════════════════
+PART 2 — PROCEDURAL GRAPHS  (scripts/01_build_graphs.py complete)
+════════════════════════════════════════════════════════════════════════════════
+
+All 5 task graphs built and cached in data/graphs/*.json.
+Built using local fallback builder (no GPT-4o, parsed step descriptions directly).
+
+  ┌─────────────┬───────┬─────────┬─────────┬────────┬───────┐
+  │ Task        │ Steps │ Objects │ Actions │ States │ Edges │
+  ├─────────────┼───────┼─────────┼─────────┼────────┼───────┤
+  │ blacklight  │   8   │    0    │    8    │    0   │   7   │
+  │ cardboard   │  14   │    0    │   14    │    0   │  13   │
+  │ electronics │   8   │    0    │    8    │    0   │   7   │
+  │ ion         │   9   │    0    │    9    │    0   │   8   │
+  │ tsumiki     │   7   │    0    │    7    │    0   │   6   │
+  └─────────────┴───────┴─────────┴─────────┴────────┴───────┘
+
+  NOTE: objects and states are empty (0) because the local fallback builder
+  only creates step→action chains. GPT-4o graph building (01_build_graphs.py
+  with OPENAI_API_KEY set) would populate objects, states, and richer edges.
+  This is a known limitation of the current graphs.
+
+Edge types: all edges are kind="after" (linear sequence).
+  "requires" and "produces" edges are not present in local-built graphs.
+
+════════════════════════════════════════════════════════════════════════════════
+PART 3 — ZERO-SHOT EVALUATION RESULTS  (scripts/02_zeroshot_eval.py complete)
+════════════════════════════════════════════════════════════════════════════════
+
+Model: Qwen2.5-VL-7B-Instruct (frozen, no fine-tuning)
+Threshold: default AdaptiveThreshold() — NOT YET fitted from val data
+Val split: 10 clips
+
+---- ONLINE EVALUATION (causal, no future access) ----
+
+  Adaptive threshold:
+    Binary F1       0.3168
+    Macro F1        0.2000
+    AUC-ROC         0.6037
+    Precision       0.2912
+    Recall          0.3474
+    ECE             0.7698    ← very poorly calibrated (0.0 = perfect)
+    Brier           0.7101    ← lower is better
+
+  Fixed threshold (τ = 0.5):
+    Binary F1       0.3168    ← identical to adaptive (known bug — see note)
+    Macro F1        0.2000
+    AUC-ROC         0.6037
+    Precision       0.2912
+    Recall          0.3474
+    ECE             0.7698
+    Brier           0.7101
+
+---- OFFLINE EVALUATION (full video, all windows available) ----
+
+  Adaptive threshold:
+    Binary F1       0.3244
+    Macro F1        0.1500
+    AUC-ROC         0.6064
+    Precision       0.3297
+    Recall          0.3193
+    ECE             0.7649
+    Brier           0.7057
+
+  Fixed threshold (τ = 0.5):
+    Binary F1       0.3244    ← identical to adaptive (same bug)
+    Macro F1        0.1500
+    AUC-ROC         0.6064
+    Precision       0.3297
+    Recall          0.3193
+    ECE             0.7649
+    Brier           0.7057
+
+---- INTERPRETATION ----
+
+  Binary F1 ~0.32
+    The model detects some mistakes but misses many and also fires false
+    positives. Acceptable for a frozen zero-shot VLM with no task training.
+
+  Macro F1 ~0.17–0.20
+    Near-random class prediction. Model rarely identifies whether the mistake
+    is wrong_action vs wrong_object. Class label quality is very weak.
+
+  AUC-ROC ~0.60
+    Slightly above random (0.5). The raw confidence scores do rank mistake
+    windows above clean windows, but not reliably.
+
+  ECE ~0.77
+    Very high. Means the model's stated confidence is badly miscalibrated.
+    When it says 0.8 confidence, it is often wrong.
+    This must be addressed in Phase 4 (LoRA with calibration loss).
+
+  Adaptive == Fixed (known bug)
+    Both thresholds produce identical numbers because:
+    1. Threshold params were not yet fitted (using default bias=-0.5).
+    2. The per-window τ was not saving prediction records, so
+       03b_fit_threshold.py could not have been run.
+    Fix applied (code updated): τ now computed per window with history,
+    and preds_online.json will be saved on next run.
+
+  Online ≈ Offline F1 (suspicious)
+    Online and offline F1 are nearly identical (0.317 vs 0.324).
+    Offline should be higher since it has full video context.
+    Possible cause: step index advances too aggressively in online mode,
+    overriding the causal constraint. Needs investigation.
+
+════════════════════════════════════════════════════════════════════════════════
+PART 4 — UNIT TEST RESULTS  (pytest tests/)
+════════════════════════════════════════════════════════════════════════════════
+
+Status: ALL PASSING
+  36 tests passed in 0.55 seconds (no GPU or data required)
+
+Test files and what they cover:
+  tests/test_graph_schema.py        ProceduralGraph schema, DAG validation,
+                                    edge types, dangling ref checks,
+                                    prompt template rendering
+  tests/test_metrics.py             binary F1, macro F1, AUC, ECE, Brier
+                                    correctness on synthetic labels
+  tests/test_sampler.py             sliding window count, causal ordering,
+                                    VLM prompt brace rendering
+  tests/test_threshold.py           per-window τ varies with uncertainty,
+                                    feature vector length=5,
+                                    sigmoid at 0 = 0.5,
+                                    save/load JSON roundtrip,
+                                    fit two-class logistic regression,
+                                    fit single-class fallback
+
+════════════════════════════════════════════════════════════════════════════════
+PART 5 — WHAT IS MISSING (not yet run / not yet generated)
+════════════════════════════════════════════════════════════════════════════════
+
+  ┌─────────────────────────────────────────┬──────────────────────────────────┐
+  │ Missing Output                          │ How to Generate                  │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ outputs/zeroshot/preds_online.json      │ Re-run 02_zeroshot_eval.py       │
+  │   per-window predictions with features  │ (code now saves them — was       │
+  │   needed for threshold fitting          │  missing in original run)         │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ outputs/threshold_params.json           │ Run 03b_fit_threshold.py         │
+  │   fitted [α,β,γ,δ,ε,bias] params       │ (requires preds_online.json      │
+  │   for AdaptiveThreshold                 │  from step above)                │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ Eval with FITTED adaptive threshold     │ Load threshold_params.json in    │
+  │   (current results use default params,  │04_full_eval.py via               │
+  │    so adaptive == fixed)                │ AdaptiveThreshold.from_json()    │
+  │                                         │ then re-run eval                 │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ outputs/lora_adapters/                  │ Run 03_lora_train.py             │
+  │   Phase 4 LoRA fine-tuned weights       │ (~24–48h on A100 80GB)           │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ outputs/full_eval/ablation.json         │ Run 04_full_eval.py              │
+  │   full ablation table:                  │ (requires graphs + threshold     │
+  │   no-graph | graph+fixed | graph+adap   │  params + optionally LoRA)       │
+  │   | +LoRA                               │                                  │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ GPT-4o procedural graphs                │ Set OPENAI_API_KEY, re-run       │
+  │   (current graphs: local fallback only, │ 01_build_graphs.py               │
+  │    no objects/states/requires edges)    │ Expected: richer graphs with     │
+  │                                         │ objects, states, requires/       │
+  │                                         │ produces edges                   │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ Test set evaluation                     │ Run eval on test split           │
+  │   (all results above are val split)     │ (after LoRA, as final report)    │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ Start-time MAE / EDS metrics            │ Needs detect_start_of_deviation  │
+  │   (not reported in current results.json)│ output wired into eval report    │
+  ├─────────────────────────────────────────┼──────────────────────────────────┤
+  │ Per-task breakdown table                │ Extend eval scripts to group     │
+  │   (current results are overall only)    │ results by task_id               │
+  └─────────────────────────────────────────┴──────────────────────────────────┘
+
+════════════════════════════════════════════════════════════════════════════════
+PART 6 — RECOMMENDED NEXT EXECUTION ORDER
+════════════════════════════════════════════════════════════════════════════════
+
+Step 1 — Re-run zero-shot eval (saves per-window preds now)
+  python scripts/02_zeroshot_eval.py
+  Output: outputs/zeroshot/preds_online.json
+
+Step 2 — Fit adaptive threshold params
+  python scripts/03b_fit_threshold.py
+  Output: outputs/threshold_params.json
+  Shows: fitted [α,β,γ,δ,ε,bias] and τ distribution comparison
+
+Step 3 — Fix 04_full_eval.py to load fitted params, run ablation
+  Edit: replace AdaptiveThreshold() with
+        AdaptiveThreshold.from_json("outputs/threshold_params.json")
+  Run:  python scripts/04_full_eval.py
+  Output: outputs/full_eval/ablation.json
+  Expected: adaptive F1 > fixed F1 (first real signal of Contribution B)
+
+Step 4 — LoRA fine-tuning (Phase 4)
+  python scripts/03_lora_train.py
+  Output: outputs/lora_adapters/
+  Expected: ↑ macro F1, ↓ ECE (better calibration)
+
+Step 5 — Final evaluation on test split
+  Run 04_full_eval.py with test split + LoRA adapters loaded
+  This is the number that goes in the paper.
+
+════════════════════════════════════════════════════════════════════════════════
+PART 7 — COMPARISON CONTEXT (published baselines, for paper table)
+════════════════════════════════════════════════════════════════════════════════
+
+These are PUBLISHED numbers from other papers, NOT run by this system.
+Listed here so the current results can be contextualised.
+
+  MistSense (binary, online)      F1 ~0.50  on their own dataset
+  MoniTor   (training-free VAD)   AUC ~0.65 on anomaly benchmarks
+  PREGO     (procedural graph)    not directly comparable (different dataset)
+  ASK-HINT  (LLM-based)           not publicly benchmarked on EgoOops
+
+  EgoOops paper baseline          binary F1 ~0.40 (reported in ICCVW 2025)
+
+  This system (zero-shot, frozen): binary F1 = 0.32
+  This system is below EgoOops paper baseline at zero-shot.
+  Gap expected to close after LoRA + fitted threshold (target: >0.50 F1).

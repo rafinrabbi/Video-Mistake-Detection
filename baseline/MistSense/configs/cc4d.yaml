@@ -1,0 +1,17 @@
+# CaptainCook4D MistSense adaptation. CC4D positive rate is ~17% on train, so
+# the BCE positive weight is set to the inverse-frequency balance
+# ((1-0.17)/0.17 ≈ 4.9 → 5.0).
+model:
+  # [DEVIATION] same OPT-2.7b substitution for gated Llama2-7B (Stage 2/3 only;
+  # Stage 1 detection does not use the LLM). See REPRODUCTION_NOTES.md.
+  llm_name: "facebook/opt-2.7b"
+  llm_pretrained: "Salesforce/blip2-opt-2.7b"
+  llm_from_blip2: true
+  llm_hidden: 2560
+data:
+  dataset: "captaincook4d"
+  batch_size: 16               # 213 train clips, ~680k frames — larger batch
+training:
+  bce_w0: 1.0
+  bce_w1: 5.0                  # ~17% positive rate → inverse-freq ≈ 4.9
+  epochs: 10

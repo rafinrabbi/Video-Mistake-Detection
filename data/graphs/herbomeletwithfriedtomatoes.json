@@ -1,0 +1,259 @@
+{
+  "task_id": "herbomeletwithfriedtomatoes",
+  "task_name": "herbomeletwithfriedtomatoes",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Heat-Heat 1 tbsp oil in a non-stick frying pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "put-put tomatoes on a serving plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Chop-Chop 2 tbsp cilantro",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "stir-stir gently with a wooden spoon so the egg that sets on the base of the pan moves to enable the uncooked egg to flow into the space",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "crack-crack one egg in a bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "cook-cook the tomatoes cut-side down until they start to soften and colour",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Pour-Pour the egg mixture into the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "add-add the chopped cilantro to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Transfer-Transfer omelette to the plate and serve with the tomatoes",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Scoop-Scoop the tomatoes from the pan",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Stop-Stop stirring when it's nearly cooked to allow it to set into an omelette",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Cut-Cut tomato into two pieces",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "Take-Take a tomato",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Beat-Beat the contents of the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "add-1/2 tsp ground black pepper to the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "14",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "16",
+      "kind": "after"
+    }
+  ]
+}

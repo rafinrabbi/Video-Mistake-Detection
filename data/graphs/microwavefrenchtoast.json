@@ -1,0 +1,198 @@
+{
+  "task_id": "microwavefrenchtoast",
+  "task_name": "microwavefrenchtoast",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Microwave-Microwave on high for 90 seconds until the egg is cooked through",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "add-add bread pieces to the egg mixture in the mug, pressing the bread down into the egg",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "stir-stir the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "melt-In a large mug, melt 1 tablespoon of softened butter in the microwave for about 30 seconds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "Sprinkle-Sprinkle 1/4 teaspoon cinnamon over the egg",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "cut-cut the contents on plate, and serve",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Put-Put the mug's contents on a plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Roll-Roll the butter around in the mug to coat it",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Cut or tear-Cut or tear 1 slices of bread into bite-size pieces",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Add-Add 1/4 teaspoon vanilla extract to the mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "whisk-In the mug, whisk one egg with a fork until well blended",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "3",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "13",
+      "kind": "after"
+    }
+  ]
+}

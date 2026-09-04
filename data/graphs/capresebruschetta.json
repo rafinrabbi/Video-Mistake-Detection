@@ -1,0 +1,213 @@
+{
+  "task_id": "capresebruschetta",
+  "task_name": "capresebruschetta",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "add-1/8 cup shredded mozzarella to a bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "add-1/4 tsp salt to a bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Slice-Slice two 1/2 inch thick rounds from a baguette (slice slanted)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "Spoon-Spoon the mixture from the bowl onto the bread",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "add-1/4 tsp pepper to a bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "add-1/16 cup basil to a bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Combine-Combine the contents of the bowl",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Brush-Brush 2 slices of baguette with olive oil on both sides",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Cut-Cut 1/4 cup of cherry tomatoes into halves",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "add-In a bowl, add the cut cherry tomatoes",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "Toast-Toast both sides of the slices on the pan for 2 to 3 minutes until lightly charred and crispy and transfer the slices to a plate",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "11",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "2",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "12",
+      "kind": "after"
+    }
+  ]
+}

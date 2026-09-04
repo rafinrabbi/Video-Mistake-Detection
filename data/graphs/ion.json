@@ -1,0 +1,196 @@
+{
+  "task_id": "ion",
+  "task_name": "ionic reaction experiments",
+  "steps": [
+    {
+      "id": "step_01",
+      "description": "Put a microplate on a grid of a worksheet.",
+      "action_ids": [
+        "act_01"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_02",
+      "description": "Take a pair of tweezers out of a bag.",
+      "action_ids": [
+        "act_02"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_03",
+      "description": "Put three copper plates on the left column of the microplate using the pair of tweezers.",
+      "action_ids": [
+        "act_03"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_04",
+      "description": "Put three zinc plates on the center column of the microplate using the pair of tweezers.",
+      "action_ids": [
+        "act_04"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_05",
+      "description": "Put three magnesium plates on the right column of the microplate using the pair of tweezers.",
+      "action_ids": [
+        "act_05"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_06",
+      "description": "Put a drop of copper sulfate aqueous solution on each first row of the metal plates.",
+      "action_ids": [
+        "act_06"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_07",
+      "description": "Put a drop of zinc sulfate aqueous solution on each middle row of the metal plates.",
+      "action_ids": [
+        "act_07"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_08",
+      "description": "Put a drop of magnesium sulfate aqueous solution on each last row of the metal plates.",
+      "action_ids": [
+        "act_08"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_09",
+      "description": "Fill in a table in the worksheet with results, and then write down names of metals in the worksheet frorm the most reactive one.",
+      "action_ids": [
+        "act_09"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    }
+  ],
+  "objects": [],
+  "actions": [
+    {
+      "id": "act_01",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_02",
+      "verb": "take",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_03",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_04",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_05",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_06",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_07",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_08",
+      "verb": "put",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_09",
+      "verb": "fill",
+      "target_object_ids": []
+    }
+  ],
+  "states": [],
+  "edges": [
+    {
+      "src": "step_01",
+      "dst": "step_02",
+      "kind": "after"
+    },
+    {
+      "src": "step_02",
+      "dst": "step_03",
+      "kind": "after"
+    },
+    {
+      "src": "step_03",
+      "dst": "step_04",
+      "kind": "after"
+    },
+    {
+      "src": "step_04",
+      "dst": "step_05",
+      "kind": "after"
+    },
+    {
+      "src": "step_05",
+      "dst": "step_06",
+      "kind": "after"
+    },
+    {
+      "src": "step_06",
+      "dst": "step_07",
+      "kind": "after"
+    },
+    {
+      "src": "step_07",
+      "dst": "step_08",
+      "kind": "after"
+    },
+    {
+      "src": "step_08",
+      "dst": "step_09",
+      "kind": "after"
+    }
+  ]
+}

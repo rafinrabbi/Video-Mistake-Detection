@@ -1,0 +1,45 @@
+{
+  "config": {
+    "tau": 0.5,
+    "smooth_k": 3,
+    "min_consecutive": 2,
+    "gate_mode": "and"
+  },
+  "metrics": {
+    "binary_f1": 0.4640404770509577,
+    "macro_f1": 0.10292949354518371,
+    "per_class_f1": {
+      "no_mistake": 0.8234359483614697,
+      "order_error": 0.0,
+      "technique_error": 0.0,
+      "preparation_error": 0.0,
+      "measurement_error": 0.0,
+      "missing_step": 0.0,
+      "timing_error": 0.0,
+      "temperature_error": 0.0
+    },
+    "support": {
+      "no_mistake": 16584,
+      "order_error": 4212,
+      "technique_error": 846,
+      "preparation_error": 621,
+      "measurement_error": 786,
+      "missing_step": 2,
+      "timing_error": 556,
+      "temperature_error": 89
+    },
+    "auc_roc": 0.585480377498037,
+    "ece": 0.4882441021515852,
+    "brier": 0.449841093612929,
+    "precision": 0.3027652733118971,
+    "recall": 0.9929696287964005,
+    "eds": 0.9989973032477364,
+    "start_mae": 63.97861892415312,
+    "n_loc_events": 61,
+    "n_loc_detected": 61,
+    "auc_raw": 0.5854775117654433,
+    "macro_f1_excl_missing_step": 0.11763370690878139,
+    "n_windows": 23696,
+    "n_clips": 109
+  }
+}

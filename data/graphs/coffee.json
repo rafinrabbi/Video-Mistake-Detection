@@ -1,0 +1,273 @@
+{
+  "task_id": "coffee",
+  "task_name": "coffee",
+  "steps": [
+    {
+      "id": "0",
+      "description": "START",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    },
+    {
+      "id": "1",
+      "description": "Wait-Wait about 30 seconds for the coffee to bloom. (You will see small bubbles or foam on the coffee grounds during this step.)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "2",
+      "description": "Pour-Pour a small amount of water into the filter to wet the grounds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "3",
+      "description": "Transfer-Transfer the grounds to the filter cone",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "4",
+      "description": "spread-spread open filter in dripper to create a cone",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "5",
+      "description": "Place-Place the paper filter in the dripper",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "6",
+      "description": "pour-Slowly pour the rest of the water over the grounds in a circular motion. Do not overfill beyond the top of the paper filter",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "7",
+      "description": "Prepare-Prepare the filter insert by folding the paper filter in half to create a semi-circle, and in half again to create a quarter-circle",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "8",
+      "description": "Discard-Discard the paper filter and coffee grounds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "9",
+      "description": "Boil-Boil the water. (While the water is boiling, assemble the filter cone)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "10",
+      "description": "Weigh-Weigh the coffee beans (0.8oz-0.12 oz)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "11",
+      "description": "drain-Let the coffee drain completely into the mug before removing the dripper",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "12",
+      "description": "Grind-Grind the coffee beans until the coffee grounds are the consistency of coarse sand, about 20 seconds",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "13",
+      "description": "Measure-Measure 12 ounces of cold water",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "14",
+      "description": "Place-Place the dripper on top of a coffee mug",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "15",
+      "description": "transfer-transfer water to a kettle",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "16",
+      "description": "check-Once the water has boiled, check the temperature of the water. (The water should be between 195-205 degrees Fahrenheit or between 91-96 degrees Celsius. If the water is too hot, let it cool briefly.)",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "17",
+      "description": "END",
+      "action_ids": [],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": true
+    }
+  ],
+  "objects": [],
+  "actions": [],
+  "states": [],
+  "edges": [
+    {
+      "src": "2",
+      "dst": "1",
+      "kind": "after"
+    },
+    {
+      "src": "16",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "3",
+      "dst": "2",
+      "kind": "after"
+    },
+    {
+      "src": "4",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "12",
+      "dst": "3",
+      "kind": "after"
+    },
+    {
+      "src": "5",
+      "dst": "4",
+      "kind": "after"
+    },
+    {
+      "src": "7",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "14",
+      "dst": "5",
+      "kind": "after"
+    },
+    {
+      "src": "1",
+      "dst": "6",
+      "kind": "after"
+    },
+    {
+      "src": "11",
+      "dst": "8",
+      "kind": "after"
+    },
+    {
+      "src": "15",
+      "dst": "9",
+      "kind": "after"
+    },
+    {
+      "src": "6",
+      "dst": "11",
+      "kind": "after"
+    },
+    {
+      "src": "10",
+      "dst": "12",
+      "kind": "after"
+    },
+    {
+      "src": "13",
+      "dst": "15",
+      "kind": "after"
+    },
+    {
+      "src": "9",
+      "dst": "16",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "7",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "10",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "13",
+      "kind": "after"
+    },
+    {
+      "src": "0",
+      "dst": "14",
+      "kind": "after"
+    },
+    {
+      "src": "8",
+      "dst": "17",
+      "kind": "after"
+    }
+  ]
+}

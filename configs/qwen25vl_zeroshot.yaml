@@ -1,0 +1,15 @@
+defaults:
+  - cc4d
+
+mode: zeroshot
+vlm:
+  model_id: Qwen/Qwen2.5-VL-7B-Instruct
+  load_in_8bit: false
+  load_in_4bit: false
+
+decision:
+  fixed_tau: 0.5
+  gate_mode: and             # and | conf_only
+  smoothing: median
+  smoothing_k: 3
+  min_consecutive: 2

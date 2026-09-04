@@ -1,0 +1,83 @@
+# ---------------------------------------------------------------------------
+# Datasets and derived data. None of this belongs on GitHub: it is either
+# third-party (CaptainCook4D is redistributed by its own authors) or derived
+# and regenerable from code that IS tracked.
+# ---------------------------------------------------------------------------
+data/raw/
+data/processed/
+
+# MistSense baseline: per-recording feature arrays, ~2.9 GB across 1,536 files.
+# Regenerate with baseline/MistSense/scripts/extract_features.py.
+# NOTE the deliberate exception below: runs/probs_test and runs/probs_val are
+# only ~3 MB and the paper's protocol-matched baseline row (R9) is computed
+# from them, so they stay tracked.
+baseline/MistSense/data/processed/
+baseline/MistSense/data/raw/
+baseline/MistSense/data/interim/
+baseline/MistSense/outputs/
+baseline/MistSense/runs/**/checkpoints/
+
+# ---------------------------------------------------------------------------
+# Model weights and checkpoints of every flavour
+# ---------------------------------------------------------------------------
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.h5
+*.onnx
+
+# ---------------------------------------------------------------------------
+# Run outputs. The directory is ignored wholesale; the small result JSONs the
+# paper is generated from are force-added on purpose:
+#   git add -f outputs/decision_v2/row_*.json outputs/decision_v2/bootstrap_*.json
+# ---------------------------------------------------------------------------
+outputs/
+logs/
+wandb/
+/runs/
+
+# Videos, images and other large binaries produced during analysis
+*.mp4
+*.avi
+*.mkv
+*.mov
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# LaTeX build artefacts (main.pdf is tracked on purpose: it is the deliverable)
+# ---------------------------------------------------------------------------
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+paper/*.toc
+
+# ---------------------------------------------------------------------------
+# Editor and OS cruft
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/

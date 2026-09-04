@@ -1,0 +1,11 @@
+epoch 1/10 | train_loss=1.5495 | val_f1=0.3413 f1_mistake=0.4757 | best (saved)
+epoch 2/10 | train_loss=1.2850 | val_f1=0.5344 f1_mistake=0.2758
+epoch 3/10 | train_loss=1.1720 | val_f1=0.3477 f1_mistake=0.4878 | best (saved)
+epoch 4/10 | train_loss=1.1719 | val_f1=0.5609 f1_mistake=0.4782
+epoch 5/10 | train_loss=1.0805 | val_f1=0.5698 f1_mistake=0.4225
+epoch 6/10 | train_loss=1.0445 | val_f1=0.5620 f1_mistake=0.4193
+epoch 7/10 | train_loss=0.9474 | val_f1=0.5528 f1_mistake=0.4268
+epoch 8/10 | train_loss=0.8739 | val_f1=0.5651 f1_mistake=0.4054
+epoch 9/10 | train_loss=0.8755 | val_f1=0.5585 f1_mistake=0.4223
+epoch 10/10 | train_loss=0.8366 | val_f1=0.5639 f1_mistake=0.3976
+best epoch: 3 (f1_mistake=0.4878) saved -> runs/cc4d_stage1_best.pt

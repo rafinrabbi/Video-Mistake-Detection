@@ -1,0 +1,47 @@
+{
+  "config": {
+    "preds": "outputs/decision_v2/lora_fixedptr_test_preds.json",
+    "split": "test",
+    "tau": 0.45,
+    "smooth_k": 5,
+    "min_consecutive": 1,
+    "gate_mode": "conf_only"
+  },
+  "metrics": {
+    "binary_f1": 0.4575271598551474,
+    "macro_f1": 0.08248798085949255,
+    "per_class_f1": {
+      "no_mistake": 0.1471466579790411,
+      "order_error": 0.2500515782958531,
+      "technique_error": 0.060322108345534406,
+      "preparation_error": 0.059275933220784095,
+      "measurement_error": 0.12459807073954984,
+      "missing_step": 0.0,
+      "timing_error": 0.018509498295177788,
+      "temperature_error": 0.0
+    },
+    "support": {
+      "no_mistake": 16584,
+      "order_error": 4212,
+      "technique_error": 846,
+      "preparation_error": 621,
+      "measurement_error": 786,
+      "missing_step": 2,
+      "timing_error": 556,
+      "temperature_error": 89
+    },
+    "auc_roc": 0.5735989187472226,
+    "ece": 0.30973915119481243,
+    "brier": 0.311289046432955,
+    "precision": 0.3031120047525476,
+    "recall": 0.9326490438695163,
+    "eds": 0.8342502508829116,
+    "start_mae": 67.25767000018324,
+    "n_loc_events": 61,
+    "n_loc_detected": 58,
+    "auc_raw": 0.5734851160971015,
+    "macro_f1_excl_missing_step": 0.09427197812513434,
+    "n_windows": 23696,
+    "n_clips": 109
+  }
+}

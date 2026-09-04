@@ -1,0 +1,175 @@
+{
+  "task_id": "blacklight",
+  "task_name": "ionic reaction experiments with blacklight",
+  "steps": [
+    {
+      "id": "step_01",
+      "description": "Pour about 15mL of water into a cup, dip the tip of a red highlighter in the water and squeeze out a drop.",
+      "action_ids": [
+        "act_01"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_02",
+      "description": "Pour about 15mL of water into a cup, dip the tip of a green highlighter in the water and squeeze out a drop.",
+      "action_ids": [
+        "act_02"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_03",
+      "description": "Pour about 15mL of water into a cup, dip the tip of a yellow highlighter in the water and squeeze out a drop.",
+      "action_ids": [
+        "act_03"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_04",
+      "description": "Take out the powdered detergent into a cup, add about 15mL of water and dissolve it.",
+      "action_ids": [
+        "act_04"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_05",
+      "description": "Shine a black light on each liquid to examine its luminescence color.",
+      "action_ids": [
+        "act_05"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_06",
+      "description": "Mix powdered detergent, red, and green liquid in a cup.",
+      "action_ids": [
+        "act_06"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_07",
+      "description": "Mix powdered detergent and yellow liquid in a cup.",
+      "action_ids": [
+        "act_07"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    },
+    {
+      "id": "step_08",
+      "description": "Check the color of the mixed liquid by shining a black light on it to see if it turns white.",
+      "action_ids": [
+        "act_08"
+      ],
+      "required_object_ids": [],
+      "produced_state_ids": [],
+      "valid_variations": [],
+      "is_optional": false
+    }
+  ],
+  "objects": [],
+  "actions": [
+    {
+      "id": "act_01",
+      "verb": "pour",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_02",
+      "verb": "pour",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_03",
+      "verb": "pour",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_04",
+      "verb": "take",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_05",
+      "verb": "shine",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_06",
+      "verb": "mix",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_07",
+      "verb": "mix",
+      "target_object_ids": []
+    },
+    {
+      "id": "act_08",
+      "verb": "check",
+      "target_object_ids": []
+    }
+  ],
+  "states": [],
+  "edges": [
+    {
+      "src": "step_01",
+      "dst": "step_02",
+      "kind": "after"
+    },
+    {
+      "src": "step_02",
+      "dst": "step_03",
+      "kind": "after"
+    },
+    {
+      "src": "step_03",
+      "dst": "step_04",
+      "kind": "after"
+    },
+    {
+      "src": "step_04",
+      "dst": "step_05",
+      "kind": "after"
+    },
+    {
+      "src": "step_05",
+      "dst": "step_06",
+      "kind": "after"
+    },
+    {
+      "src": "step_06",
+      "dst": "step_07",
+      "kind": "after"
+    },
+    {
+      "src": "step_07",
+      "dst": "step_08",
+      "kind": "after"
+    }
+  ]
+}
