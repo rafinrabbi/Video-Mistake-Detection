@@ -1,0 +1,203 @@
+{
+ "schema": "recipe_holdout_v1",
+ "k": 4,
+ "min_order_recordings": 3,
+ "rule": "eligible = >=min_order order-error recordings and no duplicate step text; ranked by step count, split into k bands, most error recordings per band",
+ "heldout_recipes": [
+  "blenderbananapancakes",
+  "capresebruschetta",
+  "herbomeletwithfriedtomatoes",
+  "spicytunaavocadowraps"
+ ],
+ "eligible": [
+  "spicedhotchocolate",
+  "breakfastburritos",
+  "capresebruschetta",
+  "cheesepimiento",
+  "cucumberraita",
+  "buttercorncup",
+  "microwaveeggsandwich",
+  "zoodles",
+  "blenderbananapancakes",
+  "microwavemugpizza",
+  "herbomeletwithfriedtomatoes",
+  "ramen",
+  "coffee",
+  "spicytunaavocadowraps",
+  "panfriedtofu",
+  "tomatochutney",
+  "scrambledeggs",
+  "broccolistirfry"
+ ],
+ "stats": {
+  "blenderbananapancakes": {
+   "n_steps": 14,
+   "n_recordings": 19,
+   "n_error_recordings": 12,
+   "n_order_recordings": 5,
+   "duplicate_step_text": false
+  },
+  "breakfastburritos": {
+   "n_steps": 11,
+   "n_recordings": 16,
+   "n_error_recordings": 10,
+   "n_order_recordings": 5,
+   "duplicate_step_text": false
+  },
+  "broccolistirfry": {
+   "n_steps": 25,
+   "n_recordings": 16,
+   "n_error_recordings": 5,
+   "n_order_recordings": 4,
+   "duplicate_step_text": false
+  },
+  "buttercorncup": {
+   "n_steps": 12,
+   "n_recordings": 14,
+   "n_error_recordings": 8,
+   "n_order_recordings": 4,
+   "duplicate_step_text": false
+  },
+  "capresebruschetta": {
+   "n_steps": 11,
+   "n_recordings": 18,
+   "n_error_recordings": 12,
+   "n_order_recordings": 4,
+   "duplicate_step_text": false
+  },
+  "cheesepimiento": {
+   "n_steps": 11,
+   "n_recordings": 15,
+   "n_error_recordings": 9,
+   "n_order_recordings": 4,
+   "duplicate_step_text": false
+  },
+  "coffee": {
+   "n_steps": 16,
+   "n_recordings": 15,
+   "n_error_recordings": 7,
+   "n_order_recordings": 3,
+   "duplicate_step_text": false
+  },
+  "cucumberraita": {
+   "n_steps": 11,
+   "n_recordings": 20,
+   "n_error_recordings": 8,
+   "n_order_recordings": 6,
+   "duplicate_step_text": false
+  },
+  "dressedupmeatballs": {
+   "n_steps": 16,
+   "n_recordings": 16,
+   "n_error_recordings": 10,
+   "n_order_recordings": 4,
+   "duplicate_step_text": true
+  },
+  "herbomeletwithfriedtomatoes": {
+   "n_steps": 15,
+   "n_recordings": 17,
+   "n_error_recordings": 11,
+   "n_order_recordings": 8,
+   "duplicate_step_text": false
+  },
+  "microwaveeggsandwich": {
+   "n_steps": 12,
+   "n_recordings": 18,
+   "n_error_recordings": 12,
+   "n_order_recordings": 8,
+   "duplicate_step_text": false
+  },
+  "microwavefrenchtoast": {
+   "n_steps": 11,
+   "n_recordings": 14,
+   "n_error_recordings": 5,
+   "n_order_recordings": 1,
+   "duplicate_step_text": false
+  },
+  "microwavemugpizza": {
+   "n_steps": 14,
+   "n_recordings": 13,
+   "n_error_recordings": 5,
+   "n_order_recordings": 5,
+   "duplicate_step_text": false
+  },
+  "mugcake": {
+   "n_steps": 20,
+   "n_recordings": 17,
+   "n_error_recordings": 10,
+   "n_order_recordings": 2,
+   "duplicate_step_text": false
+  },
+  "panfriedtofu": {
+   "n_steps": 19,
+   "n_recordings": 15,
+   "n_error_recordings": 7,
+   "n_order_recordings": 5,
+   "duplicate_step_text": false
+  },
+  "pinwheels": {
+   "n_steps": 19,
+   "n_recordings": 12,
+   "n_error_recordings": 8,
+   "n_order_recordings": 3,
+   "duplicate_step_text": true
+  },
+  "ramen": {
+   "n_steps": 15,
+   "n_recordings": 17,
+   "n_error_recordings": 7,
+   "n_order_recordings": 3,
+   "duplicate_step_text": false
+  },
+  "sautedmushrooms": {
+   "n_steps": 18,
+   "n_recordings": 14,
+   "n_error_recordings": 8,
+   "n_order_recordings": 7,
+   "duplicate_step_text": true
+  },
+  "scrambledeggs": {
+   "n_steps": 23,
+   "n_recordings": 16,
+   "n_error_recordings": 10,
+   "n_order_recordings": 8,
+   "duplicate_step_text": false
+  },
+  "spicedhotchocolate": {
+   "n_steps": 7,
+   "n_recordings": 16,
+   "n_error_recordings": 10,
+   "n_order_recordings": 4,
+   "duplicate_step_text": false
+  },
+  "spicytunaavocadowraps": {
+   "n_steps": 17,
+   "n_recordings": 18,
+   "n_error_recordings": 11,
+   "n_order_recordings": 4,
+   "duplicate_step_text": false
+  },
+  "tomatochutney": {
+   "n_steps": 19,
+   "n_recordings": 15,
+   "n_error_recordings": 10,
+   "n_order_recordings": 10,
+   "duplicate_step_text": false
+  },
+  "tomatomozzarellasalad": {
+   "n_steps": 9,
+   "n_recordings": 18,
+   "n_error_recordings": 7,
+   "n_order_recordings": 1,
+   "duplicate_step_text": false
+  },
+  "zoodles": {
+   "n_steps": 13,
+   "n_recordings": 15,
+   "n_error_recordings": 11,
+   "n_order_recordings": 9,
+   "duplicate_step_text": false
+  }
+ },
+ "n_heldout_recordings": 72
+}

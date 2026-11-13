@@ -1,0 +1,11 @@
+You are watching an egocentric cooking video. The frames are consecutive samples from the most recent {context_sec} seconds, in time order; the LAST frames are the present moment.
+
+TASK: {task_name}
+
+STEP MENU (the recipe's steps; letters are labels, not the required order):
+{step_menu}
+
+Which menu step is the person performing in the most recent 4 seconds? Judge from what the hands and objects are doing now; earlier frames only give context. Answer "-" if no recipe step is in progress (idle, moving between steps, cleaning).
+
+Respond ONLY with compact JSON on one line, where X is a single menu letter or the character -:
+{"step":"X"}

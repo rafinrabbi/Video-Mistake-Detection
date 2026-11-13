@@ -40,9 +40,26 @@ def main():
     ap.add_argument("--max_windows", type=int, default=10000)
     ap.add_argument("--num_workers", type=int, default=4)
     ap.add_argument("--no_wandb", action="store_true")
-    ap.add_argument("--prompt_variant", default="graph", choices=["graph", "nograph"],
-                    help="'nograph' trains with the graph block stripped from the "
-                         "prompt (graph ablation arm)")
+    ap.add_argument("--prompt_variant", default="graph",
+                    choices=["graph", "nograph", "belief", "belief_nograph", "stepreco"],
+                    help="'nograph' strips the graph block (graph ablation arm); "
+                         "'belief' is the GraphTrack menu + tracked-state prompt with "
+                         "the compact step-first target; 'belief_nograph' keeps the "
+                         "menu and drops the tracked state")
+    ap.add_argument("--context_mode", default="gold", choices=["gold", "corrupt"],
+                    help="belief prompts only: show the gold step, or corrupt it at "
+                         "--corrupt_rate so training matches the noisy test-time tracker")
+    ap.add_argument("--corrupt_rate", type=float, default=0.35)
+    ap.add_argument("--step_loss_weight", type=float, default=2.0,
+                    help="belief prompts only: CE weight on the step-letter token")
+    ap.add_argument("--context_sec", type=float, default=0.0,
+                    help="step recogniser look-back in seconds (frames from end-context..end); 0 = window only")
+    ap.add_argument("--context_fps", type=float, default=1.0)
+    ap.add_argument("--gradient_checkpointing", action="store_true",
+                    help="recompute activations in backward (needed for 8-frame context on a shared card)")
+    ap.add_argument("--recipe_holdout", default=None,
+                    help="JSON from scripts/cc4d_make_recipe_holdout.py: train on the "
+                         "non-held-out recipes only (unseen-recipe experiment)")
     args = ap.parse_args()
 
     train(
@@ -68,6 +85,13 @@ def main():
         wandb_project="vmd-cc4d-lora",
         use_wandb=not args.no_wandb,
         prompt_variant=args.prompt_variant,
+        context_mode=args.context_mode,
+        corrupt_rate=args.corrupt_rate,
+        step_loss_weight=args.step_loss_weight,
+        recipe_holdout=args.recipe_holdout,
+        context_sec=args.context_sec,
+        context_fps=args.context_fps,
+        gradient_checkpointing=args.gradient_checkpointing,
     )
 
 

@@ -1,0 +1,30 @@
+You are a procedural mistake detection expert analyzing an egocentric video clip.
+
+TASK: {task_name}
+
+STEP MENU (the recipe's steps; letters are labels, not the required order):
+{step_menu}
+
+TRACKED STATE (estimated from earlier clips; may be wrong):
+Most likely current step: {tracked_letter} — {tracked_desc} (confidence {tracked_p})
+Steps already completed: {completed_letters}
+Steps that may legitimately come next: {next_letters}
+
+RECENT HISTORY (last {history_len} clips):
+{history_summary}
+
+Look at the frames and decide:
+1. Which menu step is the person performing right now? Use "-" if no recipe step is in progress.
+2. Is what they are doing a mistake? A mistake includes doing a step out of the recipe's order, skipping a required step, wrong technique, wrong ingredient or tool, wrong amount, wrong duration, or wrong temperature.
+3. If it is a mistake, classify it:
+- "no_mistake": step performed correctly
+- "order_error": step done out of sequence (too early or too late for the recipe)
+- "technique_error": action performed with the wrong manner / method
+- "preparation_error": wrong ingredient, wrong tool, or wrong pre-state
+- "measurement_error": wrong amount / quantity / number
+- "missing_step": a required step was skipped entirely
+- "timing_error": action duration wrong — too long or too short
+- "temperature_error": cooking heat / temperature wrong
+
+Respond ONLY with compact JSON on one line, in exactly this form, where X is a single menu letter (or the character - when no recipe step is in progress) and LABEL is one of the labels above:
+{"step":"X","deviation":true|false,"mistake_class":"LABEL"}

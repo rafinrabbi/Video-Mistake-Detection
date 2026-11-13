@@ -145,3 +145,78 @@ def test_skipped_clips_keep_their_gold_events(patched, tmp_path):
     assert vlm.seen == [], "nothing left to infer"
     assert resumed["metrics"]["n_loc_events"] == full["metrics"]["n_loc_events"]
     assert _same(resumed["metrics"], full["metrics"])
+
+
+def test_resume_recomputes_partial_clip_with_valid_lines(patched, tmp_path):
+    clips = [_clip("c0"), _clip("c1")]
+    full, _ = _run(tmp_path / "full", clips, resume=False)
+    directory = tmp_path / "partial"
+    _run(directory, clips, resume=False)
+    sidecar = directory / "preds.jsonl"
+    lines = sidecar.read_text().splitlines()
+    sidecar.write_text("\n".join(lines[:4]) + '\n{"clip_id":')
+    resumed, vlm = _run(directory, clips, resume=True)
+    assert set(vlm.seen) == {"c1"}
+    assert _same(resumed["metrics"], full["metrics"])
+    second, vlm2 = _run(directory, clips, resume=True)
+    assert vlm2.seen == [] and _same(second["metrics"], full["metrics"])
+    assert len(sidecar.read_text().splitlines()) == 6
+
+
+def test_resume_rejects_legacy_scores_for_corrected_model(patched, tmp_path):
+    clips = [_clip("c0")]
+    _run(tmp_path, clips, resume=False)
+    vlm = StubVLM()
+    vlm.score_version = "boolean_pair_v1"
+    with pytest.raises(ValueError, match="score versions"):
+        _run(tmp_path, clips, resume=True, vlm=vlm)
+
+
+def test_collection_causal_protocol_replays_identically(patched, tmp_path):
+    from vmd.eval.causal import evaluate_causal
+    from vmd.eval.decision_layer import load_preds
+    from vmd.eval.event_metrics import GoldEvent
+    clips = [_clip("c0"), _clip("c1")]
+    result = online_mod.run_online_eval(
+        clips, GRAPHS, StubVLM(), evaluation_protocol="causal_v1",
+        save_preds_path=tmp_path / "preds.json")
+    replay = evaluate_causal(load_preds(tmp_path / "preds.json"),
+                             {c.clip_id: [GoldEvent(4, 8, "order_error")] for c in clips},
+                             {c.clip_id: c.duration_sec for c in clips},
+                             smooth_k=3, min_consecutive=2, gate_mode="and")
+    assert _same(result["metrics"], replay["metrics"])
+
+
+class StubScoredVLM(StubVLM):
+    """Belief-tracker stand-in: also returns a step distribution per window."""
+    prompt_variant = "belief"
+
+    def predict_scored(self, frames, ctx, history, n_steps=0, history_len=3):
+        import numpy as np
+        cid, i = frames
+        pred = self.predict(frames, ctx, history)
+        pred.step_letter = "A"
+        probs = np.full(n_steps + 1, 0.02)
+        probs[(int(cid[1:]) + i) % n_steps] += 1.0
+        return pred, probs / probs.sum(), (int(cid[1:]) + i) % n_steps
+
+
+def test_belief_tracker_resume_and_record_schema(patched, tmp_path):
+    clips = [_clip(f"c{i}") for i in range(3)]
+    full = online_mod.run_online_eval(clips, GRAPHS, StubScoredVLM(), tracker="belief",
+                                      save_preds_path=tmp_path / "a" / "preds.json")
+    online_mod.run_online_eval(clips[:1], GRAPHS, StubScoredVLM(), tracker="belief",
+                               save_preds_path=tmp_path / "b" / "preds.json")
+    resumed = online_mod.run_online_eval(clips, GRAPHS, StubScoredVLM(), tracker="belief",
+                                         save_preds_path=tmp_path / "b" / "preds.json", resume=True)
+    assert _same(resumed["metrics"], full["metrics"])
+    recs = json.loads((tmp_path / "a" / "preds.json").read_text())
+    r = recs[0]
+    for key in ("task_id", "gold_step_idx", "gold_step_idx_strict", "tracked_step_idx", "step_probs",
+                "structural_surprise", "illegal_hold", "belief_entropy", "tracker", "prompt_variant"):
+        assert key in r, key
+    assert r["tracker"] == "belief" and len(r["step_probs"]) == 5   # 4 steps + transit
+    # the frozen decision layer still reads these records
+    from vmd.eval.decision_layer import evaluate_records, load_preds
+    by = load_preds(tmp_path / "a" / "preds.json")
+    assert evaluate_records(by, {c.clip_id: (4.0, 8.0) for c in clips})["n_windows"] == len(recs)

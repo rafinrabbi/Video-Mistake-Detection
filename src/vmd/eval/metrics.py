@@ -95,16 +95,18 @@ def early_detection_score(
 
 def expected_calibration_error(
     confidences: Sequence[float],
-    correctness: Sequence[int],
+    labels: Sequence[int],
     n_bins: int = 10,
 ) -> float:
     confs = np.array(confidences)
-    correct = np.array(correctness)
+    correct = np.array(labels)
     bins = np.linspace(0, 1, n_bins + 1)
     ece = 0.0
     n = len(confs)
-    for lo, hi in zip(bins[:-1], bins[1:]):
+    for i, (lo, hi) in enumerate(zip(bins[:-1], bins[1:])):
         mask = (confs >= lo) & (confs < hi)
+        if i == n_bins - 1:
+            mask |= confs == 1.0
         if mask.sum() == 0:
             continue
         bin_acc = correct[mask].mean()
@@ -115,10 +117,10 @@ def expected_calibration_error(
 
 def brier_score(
     confidences: Sequence[float],
-    correctness: Sequence[int],
+    labels: Sequence[int],
 ) -> float:
     confs = np.array(confidences)
-    correct = np.array(correctness)
+    correct = np.array(labels)
     return float(np.mean((confs - correct) ** 2))
 
 
@@ -133,19 +135,18 @@ def compute_all(
     confidences: List[float],
     mistake_classes: List[str],
 ) -> dict:
-    # ECE / Brier measure calibration of the DETECTOR: confidence vs. whether the
-    # binary decision was correct (pred == true), NOT confidence vs. the positive
-    # label. Using the label as "correctness" would score a confident, correct
-    # negative as fully miscalibrated. correctness_i = 1 iff y_pred == y_true.
-    correctness = [int(p == t) for p, t in zip(y_pred_binary, y_true_binary)]
+    # The raw score has positive-class polarity, not confidence in the selected
+    # decision. Calibration therefore compares scores with mistake labels and
+    # must not depend on gating or smoothing. Historical decision_v2 artifacts
+    # used decision correctness; corrected analyses are versioned separately.
     return {
         "binary_f1": binary_f1(y_true_binary, y_pred_binary),
         "macro_f1": macro_f1(y_true_class, y_pred_class, mistake_classes),
         "per_class_f1": per_class_f1(y_true_class, y_pred_class, mistake_classes),
         "support": per_class_support(y_true_class, mistake_classes),
         "auc_roc": auc_roc(y_true_binary, y_score),
-        "ece": expected_calibration_error(confidences, correctness),
-        "brier": brier_score(confidences, correctness),
+        "ece": expected_calibration_error(confidences, y_true_binary),
+        "brier": brier_score(confidences, y_true_binary),
         "precision": float(precision_score(y_true_binary, y_pred_binary, zero_division=0)),
         "recall": float(recall_score(y_true_binary, y_pred_binary, zero_division=0)),
     }

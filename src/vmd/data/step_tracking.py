@@ -175,3 +175,87 @@ class RateLimitedPointer:
     def idx(self) -> int:
         """Index into the recipe graph's step list."""
         return self.order[min(self._pos, self.n_steps - 1)]
+
+
+# --------------------------------------------------------------------------
+# Gold-span <-> graph alignment that survives repeated step text, and a shared
+# replay of the legacy trackers so metrics and figures use one code path.
+# --------------------------------------------------------------------------
+
+def match_spans_to_graph(spans: List[StepSpan], graph_steps,
+                         order: Optional[List[int]] = None) -> Dict[int, int]:
+    """Map each localizable span (by index in ``spans``) to a graph position.
+
+    ``graph_index_of_span`` returns the FIRST description match, which collapses
+    the repeated steps in four recipes (pinwheels lists "Continue slicing with
+    floss" three times) onto one node. Here the k-th occurrence of a description
+    in TIME is assigned to the k-th node carrying that description in ``order``
+    (topological order when given, graph list order otherwise); occurrences
+    beyond the available nodes reuse the last one.
+    """
+    order = list(order) if order else list(range(len(graph_steps)))
+    nodes_by_desc: Dict[str, List[int]] = {}
+    for pos in order:
+        nodes_by_desc.setdefault(_norm(graph_steps[pos].description), []).append(pos)
+    nodes_by_id = {str(s.id): i for i, s in enumerate(graph_steps)}
+    timed = sorted((i for i, sp in enumerate(spans) if sp.start_sec >= 0),
+                   key=lambda i: spans[i].start_sec)
+    seen: Dict[str, int] = {}
+    out: Dict[int, int] = {}
+    for i in timed:
+        key = _norm(spans[i].description)
+        cands = nodes_by_desc.get(key)
+        if cands:
+            k = seen.get(key, 0)
+            out[i] = cands[min(k, len(cands) - 1)]
+            seen[key] = k + 1
+        elif str(spans[i].step_id) in nodes_by_id:
+            out[i] = nodes_by_id[str(spans[i].step_id)]
+    return out
+
+
+def gold_span_index_at(spans: List[StepSpan], t_sec: float, strict: bool = False) -> Optional[int]:
+    """Index into ``spans`` of the gold step at ``t_sec``.
+
+    ``strict=False`` reproduces ``gold_step_span`` (last span that has started,
+    gaps attributed to the previous step). ``strict=True`` requires
+    ``start <= t <= end`` and returns None inside inter-step gaps, which is what
+    a "between steps" tracker state needs.
+    """
+    best, best_t = None, -1.0
+    for i, sp in enumerate(spans):
+        if sp.start_sec < 0:
+            continue
+        if strict:
+            if sp.start_sec <= t_sec <= sp.end_sec and sp.start_sec >= best_t:
+                best_t, best = sp.start_sec, i
+        elif sp.start_sec <= t_sec and sp.start_sec >= best_t:
+            best_t, best = sp.start_sec, i
+    return best
+
+
+def replay_pointer(deviations: List[bool], n_steps: int, rule: str,
+                   step_seconds: Optional[float] = None, stride_sec: float = 4.0,
+                   order: Optional[List[int]] = None) -> List[int]:
+    """Graph position the model was conditioned on at each window.
+
+    ``rule="per_window"``: the original R2/R4/R5 rule -- advance one graph list
+    position on every non-deviation, clamp at the end.
+    ``rule="rate_limited"``: the R11 ``RateLimitedPointer`` over ``order``.
+    Both are driven by the saved ``deviation`` flags, so the replay is exact.
+    """
+    out: List[int] = []
+    if rule == "per_window":
+        idx = 0
+        for dev in deviations:
+            out.append(idx)
+            if not dev and idx < n_steps - 1:
+                idx += 1
+        return out
+    if rule == "rate_limited":
+        ptr = RateLimitedPointer(n_steps, step_seconds, stride_sec, order=order)
+        for dev in deviations:
+            out.append(ptr.idx)
+            ptr.observe(bool(dev))
+        return out
+    raise ValueError(f"unknown pointer rule {rule!r}")

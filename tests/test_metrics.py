@@ -54,18 +54,24 @@ def test_compute_all_exposes_per_class_and_support():
     assert m["binary_f1"] == pytest.approx(1.0)
 
 
-def test_ece_brier_score_correctness_not_label():
-    # Confident + CORRECT predictions (incl. correct negatives) must be well
-    # calibrated. Two correct negatives at conf 0.9: correctness=1, so Brier is
-    # (0.9-1)^2=0.01 (low). The old label-as-correctness bug gave (0.9-0)^2=0.81.
+def test_ece_brier_use_positive_label_and_ignore_decision_rule():
     y_true_bin = [0, 0, 1, 1]
     y_pred_bin = [0, 0, 1, 1]
     y_cls = ["no_mistake", "no_mistake", "order_error", "order_error"]
-    conf = [0.9, 0.9, 0.9, 0.9]
+    conf = [0.1, 0.1, 0.9, 0.9]
     m = compute_all(y_true_bin, y_pred_bin, y_cls, y_cls,
                     [0.0, 0.0, 0.9, 0.9], conf, MISTAKE_CLASSES)
     assert m["brier"] == pytest.approx(0.01, abs=1e-6)
-    assert m["ece"] < 0.15
+    assert m["ece"] == pytest.approx(0.1)
+    wrong = compute_all(y_true_bin, [1, 1, 0, 0], y_cls, y_cls,
+                        conf, conf, MISTAKE_CLASSES)
+    assert wrong["brier"] == pytest.approx(m["brier"])
+    assert wrong["ece"] == pytest.approx(m["ece"])
+
+
+def test_ece_includes_probability_one():
+    assert expected_calibration_error([1.0, 0.0], [0, 0]) == pytest.approx(0.5)
+    assert expected_calibration_error([1.0], [0]) == pytest.approx(1.0)
 
 
 def test_edit_distance_identical():

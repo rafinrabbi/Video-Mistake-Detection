@@ -17,6 +17,9 @@ Reproduction contract (must match the historical eval to float precision):
   5. loc:    detect_start_of_deviation(smoothed, starts, 1e-9, min_consecutive)
   6. ECE/Brier take the RAW confidence stream; "auc_roc" takes the gated score
      stream (legacy, τ-dependent); "auc_raw" takes raw confidences (τ-free).
+     Calibration was corrected on 2026-09-08 to use positive labels; historical
+     decision_v2 ECE/Brier are superseded by review_v3. Other metrics retain
+     their original semantics.
 """
 from __future__ import annotations
 

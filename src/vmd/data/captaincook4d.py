@@ -25,9 +25,11 @@ Key per-dataset quirks (handled here):
   non-localizable. Kept with start=end=-1 (so time-window `is_mistake` skips
   them) unless `drop_nonlocalizable=True`. They still matter for segment-level
   metrics — count is logged on load.
-* The ``Other`` tag (8 instances) is the only category dropped from the typed
-  metric (counted in ``untyped_dropped``); a step whose only tags are ``Other``
-  becomes ``no_mistake`` for typed eval but still counts toward binary mistake.
+* Historical label policy: an ``Other``-only step is skipped entirely
+  (counted in ``untyped_dropped``). Its windows become normal in BOTH binary
+  and typed evaluation unless another retained annotation overlaps them.
+  The manuscript reports this policy and a separate binary-label sensitivity
+  analysis; changing it here would change the training/evaluation target.
 """
 from __future__ import annotations
 
@@ -139,8 +141,21 @@ class CaptainCook4DDataset:
         combined_split: bool = True,
         drop_nonlocalizable: bool = False,
         videos_dir: Optional[Path] = None,
+        recipe_holdout: Optional[Path] = None,
     ) -> None:
+        """``recipe_holdout``: JSON with ``heldout_recipes`` (task_id slugs). When
+        given, ``split`` is reinterpreted for cross-recipe evaluation:
+        ``train``/``val`` = the official train/val recordings of the OTHER
+        recipes; ``test`` = every recording (any official split) of the held-out
+        recipes. The shipped ``recipes_data_split_*.json`` files are empty, so
+        this is the project's own construction (see
+        scripts/cc4d_make_recipe_holdout.py for the selection rule).
+        """
         self.raw_dir = Path(raw_dir)
+        self.recipe_holdout = Path(recipe_holdout) if recipe_holdout else None
+        self.heldout_recipes: set = set()
+        if self.recipe_holdout is not None:
+            self.heldout_recipes = set(json.loads(self.recipe_holdout.read_text())["heldout_recipes"])
         self.ann_root = self.raw_dir / "annotations"
         self.split = split
         self.videos_dir = Path(videos_dir) if videos_dir else self.raw_dir / "videos"
@@ -165,10 +180,17 @@ class CaptainCook4DDataset:
 
         # every recording that belongs to this split (error + normal)
         for rid, sp in rid_split.items():
-            if sp != split:
-                continue
             aid = _activity_id_of(rid)
             name = names.get(aid, f"activity_{aid}")
+            if self.heldout_recipes:
+                held = recipe_key(name) in self.heldout_recipes
+                if split == "test":
+                    if not held:
+                        continue
+                elif held or sp != split:
+                    continue
+            elif sp != split:
+                continue
             rec = err_by_rid.get(rid)
             annotations: List[MistakeAnnotation] = []
             if rec is not None and rec.get("is_error"):

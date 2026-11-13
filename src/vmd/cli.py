@@ -76,7 +76,8 @@ def infer_cmd(
             "uncertainty_reason": pred.uncertainty_reason,
             "rationale": pred.rationale,
         })
-        typer.echo(f"[{window.start_sec:.1f}s] deviation={pred.deviation} class={pred.mistake_class} conf={pred.confidence:.2f}")
+        score_text = f"{pred.confidence:.2f}" if pred.confidence is not None else pred.score_status
+        typer.echo(f"[{window.start_sec:.1f}s] deviation={pred.deviation} class={pred.mistake_class} conf={score_text}")
 
     if out:
         out.write_text(json.dumps(results, indent=2))

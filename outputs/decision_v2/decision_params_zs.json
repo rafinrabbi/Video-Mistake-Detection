@@ -1,9 +1,0 @@
-{
-  "tau": 0.3,
-  "smooth_k": 1,
-  "min_consecutive": 1,
-  "gate_mode": "conf_only",
-  "selected_on": "val",
-  "val_binary_f1": 0.1519031141868512,
-  "val_eds": 0.9829106340143005
-}
